@@ -1,0 +1,41 @@
+CREATE TABLE Account (
+    accountNo varchar(50) primary key,
+    email varchar(50) not null UNIQUE,
+    accountPassword varchar(50),
+    accountName varchar(50),
+    telNo varchar(50)
+);
+
+INSERT INTO ACCOUNT(accountNo,email,accountPassword,accountName,telNo)
+VALUES  ('h001','newnew@gmail.com','1234','Paanupong Inthialad','0992024040'),
+        ('h002','nino@gmail.com','nino0220','nino','0652147896'),
+        ('h003','putter@gmail.com','ter007','Putter','0875012002');
+
+CREATE TABLE address (
+    addressNo varchar(50) primary key,
+    addressText varchar(200) not null,
+    province varchar(50),
+    postCode varchar(50) not null,
+    accountNo varchar(50) CONSTRAINT ADDRESS_ACCOUNTNO_FK REFERENCES Account(accountNo)
+);
+
+INSERT INTO address(addressNo,addressText,province,postCode,accountNo)
+VALUES  ('ad001','100/501','prawet','10250','h001'),
+        ('ad002','11/9','ladkrabang','10520','h002'),
+        ('ad003','50/20','bangmod','10500','h003');
+
+CREATE TABLE Product(
+    productNo varchar(50) primary key,
+    productName varchar(50) not null,
+    brand varchar(50),
+    sizeNo int,
+    price double,
+    quantity int
+);
+
+CREATE TABLE RareProduct(
+    rareProductNo varchar(50),
+    dobDebut date,
+    description varchar(255),
+    productNo varchar(50) CONSTRAINT PRODUCT_PRODUCTNO_FK REFERENCES Product(productNo)
+);
