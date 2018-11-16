@@ -1,0 +1,43 @@
+
+CREATE TABLE ProductGucci(
+    productNo varchar(50) primary key,
+    productName varchar(50) not null,
+    brand varchar(50),
+    color varchar(50),
+    sizeNo double,
+    price double,
+    quantity int
+);
+
+INSERT INTO ProductGucci(productNo,productName,brand,color,sizeNo,price,quantity)
+VALUES ------------------------------------Gucci-------------------------------------
+('Cuc1-8wh','Gucci Ace Embroidered Sneaker','Cucci','White',8,32800.0,4),
+('Cuc1-85wh','Gucci Ace Embroidered Sneaker','Cucci','White',8.5,32800.0,4),
+('Cuc1-9wh','Gucci Ace Embroidered Sneaker','Cucci','White',9,32800.0,4),
+('Cuc1-95wh','Gucci Ace Embroidered Sneaker','Cucci','White',9.5,32800.0,4),
+('Cuc1-10wh','Gucci Ace Embroidered Sneaker','Cucci','White',10,32800.0,4),
+('Cuc1-105wh','Gucci Ace Embroidered Sneaker','Cucci','White',10.5,32800.0,4),
+('Cuc1-11wh','Gucci Ace Embroidered Sneaker','Cucci','White',11,32800.0,4),
+('Cuc1-115wh','Gucci Ace Embroidered Sneaker','Cucci','White',11.5,32800.0,4),
+('Cuc1-12wh','Gucci Ace Embroidered Sneaker','Cucci','White',12,32800.0,4),
+------------------------------------------------------------------------------
+('Cuc2-8br','Gucci Ace GG Supreme','Cucci','Brown',8,26000.0,4),
+('Cuc2-85br','Gucci Ace GG Supreme','Cucci','Brown',8.5,26000.0,4),
+('Cuc2-9br','Gucci Ace GG Supreme','Cucci','Brown',9,26000.0,4),
+('Cuc2-95br','Gucci Ace GG Supreme','Cucci','Brown',9.5,26000.0,4),
+('Cuc2-10br','Gucci Ace GG Supreme','Cucci','Brown',10,26000.0,4),
+('Cuc2-105br','Gucci Ace GG Supreme','Cucci','Brown',10.5,26000.0,4),
+('Cuc2-11br','Gucci Ace GG Supreme','Cucci','Brown',11,26000.0,4),
+('Cuc2-115br','Gucci Ace GG Supreme','Cucci','Brown',11.5,26000.0,4),
+('Cuc2-12br','Gucci Ace GG Supreme','Cucci','Brown',12,26000.0,4),
+------------------------------------------------------------------------------
+('Cuc3-8wh','Gucci Ace Leather','Cucci','White',8,26000.0,4),
+('Cuc3-85wh','Gucci Ace Leather','Cucci','White',8.5,26000.0,4),
+('Cuc3-9wh','Gucci Ace Leather','Cucci','White',9,26000.0,4),
+('Cuc3-95wh','Gucci Ace Leather','Cucci','White',9.5,26000.0,4),
+('Cuc3-10wh','Gucci Ace Leather','Cucci','White',10,26000.0,4),
+('Cuc3-105wh','Gucci Ace Leather','Cucci','White',10.5,26000.0,4),
+('Cuc3-11wh','Gucci Ace Leather','Cucci','White',11,26000.0,4),
+('Cuc3-115wh','Gucci Ace Leather','Cucci','White',11.5,26000.0,4),
+('Cuc3-12wh','Gucci Ace Leather','Cucci','White',12,26000.0,4);
+
