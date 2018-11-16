@@ -51,6 +51,7 @@
         <c:forEach items="${Productadidas}" var="Productadidas">
             
             <div style="background-color: white; display: inline-block ; margin: 50px">
+                <img src="img/${Productadidas.picno}.jpg" width="120">
                 <td><p>${Productadidas.productname}</p>
                 <p>COLOR ${Productadidas.color}</p>
                 <p>SIZE ${Productadidas.sizeno} Us</p>

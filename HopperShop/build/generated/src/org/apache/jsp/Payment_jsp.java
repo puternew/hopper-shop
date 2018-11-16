@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class Payment_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -46,14 +46,13 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
-      out.write("    <head>\n");
+      out.write("  <head>\n");
       out.write("        <title>HOPPER SHOP</title>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n");
       out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
       out.write("        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
-      out.write("\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <nav class=\"navbar navbar-default\">\n");
@@ -78,24 +77,57 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </ul>\n");
       out.write("                    </li>\n");
       out.write("                </ul>\n");
-      out.write("                <ul class=\"nav navbar-nav navbar-right\">\n");
-      out.write("                    <li><a href=\"Register\"><span class=\"glyphicon glyphicon-user\" ></span> Register</a></li>\n");
-      out.write("                    <li><a href=\"Login\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\n");
-      out.write("                </ul>\n");
       out.write("            </div>\n");
       out.write("        </nav>\n");
-      out.write("    <div class=\"container\" style=\"text-align: center\">         \n");
-      out.write("            <center>    \n");
-      out.write("            <img src=\"hp-logo.png\" alt=\"logo\" width=\"800\" height=\"300\" >    \n");
-      out.write("                <h2>\"Turn On Your Style\"</h2>   \n");
-      out.write("                <form action=\"Allproduct\" method=\"post\">\n");
-      out.write("                    <button type=\"button\" class=\"btn btn-default btn-lg\"> LET's GO </button>\n");
-      out.write("                </form>     \n");
-      out.write("           </center>     \n");
-      out.write("    </div>\n");
+      out.write("        <div class=\"Register-form\">\n");
+      out.write("\n");
+      out.write("            <div class=\"container\">\n");
+      out.write("                <div class=\"row centered-form\">\n");
+      out.write("                    <div class=\"col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4\">\n");
+      out.write("                        <div class=\"panel panel-default\">\n");
+      out.write("                            <div class=\"panel-heading\">\n");
+      out.write("                                <h3 class=\"panel-title\">Payment details:</h3>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"panel-body\">\n");
+      out.write("                                <form role=\"form\">\n");
+      out.write("\n");
+      out.write("                                    <div class=\"form-group\">\n");
+      out.write("                            <input type=\"textbox\" name=\"cardNo\" id=\"cardNo\" class=\"form-control input-sm\" placeholder=\"Card Number\">\n");
+      out.write("                        </div>\n");
+      out.write("\n");
+      out.write("                       \n");
+      out.write("                            <div class=\"form-group\">\n");
+      out.write("                                <input type=\"textbox\" name=\"cvv\" id=\"cvv\" class=\"form-control input-sm\" placeholder=\"CVV\">\n");
+      out.write("                            </div>\n");
+      out.write("                     \n");
+      out.write("                        <div class=\"col-xs-6 col-sm-6 col-md-6\">\n");
+      out.write("                            <div class=\"form-group\">\n");
+      out.write("                                <input type=\"textbox\" name=\"expMonth\" id=\"expMonth\" class=\"form-control input-sm\" placeholder=\"Expire Month\">\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("\n");
+      out.write("                        <div class=\"col-xs-6 col-sm-6 col-md-6\">\n");
+      out.write("                            <div class=\"form-group\">\n");
+      out.write("                                <input type=\"textbox\" name=\"expYear\" id=\"expYear\" class=\"form-control input-sm\" placeholder=\"expYear\">\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("\n");
+      out.write("                        <div class=\"form-group\">\n");
+      out.write("                            <input type=\"textbox\" name=\"nameOnCard\" id=\"nameOnCard\" class=\"form-control input-sm\" placeholder=\"Name On Card\">\n");
+      out.write("                        </div>\n");
+      out.write("            <input type=\"submit\" value=\"Payment\" class=\"btn btn-info btn-block\">\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
       out.write("\n");
       out.write("\n");
-      out.write("</body>\n");
+      out.write("                                </form>\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

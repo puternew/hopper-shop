@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author PANUPONG INTHILAD
+ * @author INT303
  */
 @Entity
 @Table(name = "PRODUCTCONVERSE")
@@ -27,39 +27,37 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Productconverse.findAll", query = "SELECT p FROM Productconverse p")
     , @NamedQuery(name = "Productconverse.findByProductno", query = "SELECT p FROM Productconverse p WHERE p.productno = :productno")
-    , @NamedQuery(name = "Productconverse.findByProductname", query = "SELECT p FROM Productconverse p WHERE p.productname = :productname")
     , @NamedQuery(name = "Productconverse.findByBrand", query = "SELECT p FROM Productconverse p WHERE p.brand = :brand")
     , @NamedQuery(name = "Productconverse.findByColor", query = "SELECT p FROM Productconverse p WHERE p.color = :color")
-    , @NamedQuery(name = "Productconverse.findBySizeno", query = "SELECT p FROM Productconverse p WHERE p.sizeno = :sizeno")
     , @NamedQuery(name = "Productconverse.findByPrice", query = "SELECT p FROM Productconverse p WHERE p.price = :price")
-    , @NamedQuery(name = "Productconverse.findByQuantity", query = "SELECT p FROM Productconverse p WHERE p.quantity = :quantity")})
+    , @NamedQuery(name = "Productconverse.findByProductname", query = "SELECT p FROM Productconverse p WHERE p.productname = :productname")
+    , @NamedQuery(name = "Productconverse.findByQuantity", query = "SELECT p FROM Productconverse p WHERE p.quantity = :quantity")
+    , @NamedQuery(name = "Productconverse.findBySizeno", query = "SELECT p FROM Productconverse p WHERE p.sizeno = :sizeno")})
 public class Productconverse implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 255)
     @Column(name = "PRODUCTNO")
     private String productno;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "PRODUCTNAME")
-    private String productname;
-    @Size(max = 50)
+    @Size(max = 255)
     @Column(name = "BRAND")
     private String brand;
-    @Size(max = 50)
+    @Size(max = 255)
     @Column(name = "COLOR")
     private String color;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "SIZENO")
-    private Double sizeno;
     @Column(name = "PRICE")
     private Double price;
+    @Size(max = 255)
+    @Column(name = "PRODUCTNAME")
+    private String productname;
     @Column(name = "QUANTITY")
     private Integer quantity;
+    @Column(name = "SIZENO")
+    private Double sizeno;
 
     public Productconverse() {
     }
@@ -68,25 +66,12 @@ public class Productconverse implements Serializable {
         this.productno = productno;
     }
 
-    public Productconverse(String productno, String productname) {
-        this.productno = productno;
-        this.productname = productname;
-    }
-
     public String getProductno() {
         return productno;
     }
 
     public void setProductno(String productno) {
         this.productno = productno;
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname;
     }
 
     public String getBrand() {
@@ -105,14 +90,6 @@ public class Productconverse implements Serializable {
         this.color = color;
     }
 
-    public Double getSizeno() {
-        return sizeno;
-    }
-
-    public void setSizeno(Double sizeno) {
-        this.sizeno = sizeno;
-    }
-
     public Double getPrice() {
         return price;
     }
@@ -121,12 +98,28 @@ public class Productconverse implements Serializable {
         this.price = price;
     }
 
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname;
+    }
+
     public Integer getQuantity() {
         return quantity;
     }
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public Double getSizeno() {
+        return sizeno;
+    }
+
+    public void setSizeno(Double sizeno) {
+        this.sizeno = sizeno;
     }
 
     @Override

@@ -96,12 +96,12 @@ public final class AllProduct_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </ul>\n");
       out.write("            </div>\n");
       out.write("        </nav>\n");
-      out.write("\n");
+      out.write("        <div style=\"text-align: center\">\n");
       out.write("        ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("        \n");
+      out.write("        </div>\n");
       out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");
@@ -135,19 +135,27 @@ public final class AllProduct_jsp extends org.apache.jasper.runtime.HttpJspBase
         do {
           out.write("\n");
           out.write("            \n");
-          out.write("            <div style=\"background-color: white; display: inline-block\">\n");
+          out.write("            <div style=\"background-color: white; display: inline-block ; margin: 50px\">\n");
+          out.write("                <img src=\"img/");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${Productadidas.picno}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write(".jpg\" width=\"120\">\n");
           out.write("                <td><p>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${Productadidas.productname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</p>\n");
-          out.write("                <p>");
+          out.write("                <p>COLOR ");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${Productadidas.color}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</p>\n");
-          out.write("                <p>");
+          out.write("                <p>SIZE ");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${Productadidas.sizeno}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</p>\n");
+          out.write(" Us</p>\n");
           out.write("                <p>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${Productadidas.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</p></td>\n");
+          out.write(" BATH</p></td>\n");
+          out.write("                <a href=\"AddItemToCart?productCode=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.productcode}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\n");
+          out.write("                                <input type=\"button\" value=\"Add to cart\"/>\n");
+          out.write("                            </a>\n");
           out.write("            </div>\n");
           out.write("            \n");
           out.write("        ");

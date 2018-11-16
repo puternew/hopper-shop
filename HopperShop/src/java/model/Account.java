@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author PANUPONG INTHILAD
+ * @author INT303
  */
 @Entity
 @Table(name = "ACCOUNT")

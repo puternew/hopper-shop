@@ -36,25 +36,25 @@
                             <li><a href="#">REBOX</a></li>
                             <li><a href="#">UNDER ARMOR</a></li>
                             <li><a href="#">VANS</a></li>
-                            <li><a href="#">OTHER</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="Register"><span class="glyphicon glyphicon-user" ></span> Register</a></li>
+                    <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </nav>
-    <dev class="container" style="text-align: center">         
+    <div class="container" style="text-align: center">         
             <center>    
             <img src="hp-logo.png" alt="logo" width="800" height="300" >    
-                <h2>Button Styles</h2> 
-                <form action="AllProduct" method="post">
-                <button type="button" class="btn btn-default btn-lg"> LET's GO </button>     
-                </form>
-            </center>     
-    </dev>
+                <h2>"Turn On Your Style"</h2>   
+                <form action="Allproduct" method="post">
+                    <button type="button" class="btn btn-default btn-lg"> LET's GO </button>
+                </form>     
+           </center>     
+    </div>
+
 
 </body>
 </html>

@@ -22,19 +22,18 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author INT303
  */
 @Entity
-@Table(name = "PRODUCTADIDAS")
+@Table(name = "PRODUCT")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Productadidas.findAll", query = "SELECT p FROM Productadidas p")
-    , @NamedQuery(name = "Productadidas.findByProductno", query = "SELECT p FROM Productadidas p WHERE p.productno = :productno")
-    , @NamedQuery(name = "Productadidas.findByPicno", query = "SELECT p FROM Productadidas p WHERE p.picno = :picno")
-    , @NamedQuery(name = "Productadidas.findByProductname", query = "SELECT p FROM Productadidas p WHERE p.productname = :productname")
-    , @NamedQuery(name = "Productadidas.findByBrand", query = "SELECT p FROM Productadidas p WHERE p.brand = :brand")
-    , @NamedQuery(name = "Productadidas.findByColor", query = "SELECT p FROM Productadidas p WHERE p.color = :color")
-    , @NamedQuery(name = "Productadidas.findBySizeno", query = "SELECT p FROM Productadidas p WHERE p.sizeno = :sizeno")
-    , @NamedQuery(name = "Productadidas.findByPrice", query = "SELECT p FROM Productadidas p WHERE p.price = :price")
-    , @NamedQuery(name = "Productadidas.findByQuantity", query = "SELECT p FROM Productadidas p WHERE p.quantity = :quantity")})
-public class Productadidas implements Serializable {
+    @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p")
+    , @NamedQuery(name = "Product.findByProductno", query = "SELECT p FROM Product p WHERE p.productno = :productno")
+    , @NamedQuery(name = "Product.findByProductname", query = "SELECT p FROM Product p WHERE p.productname = :productname")
+    , @NamedQuery(name = "Product.findByBrand", query = "SELECT p FROM Product p WHERE p.brand = :brand")
+    , @NamedQuery(name = "Product.findByColor", query = "SELECT p FROM Product p WHERE p.color = :color")
+    , @NamedQuery(name = "Product.findBySizeno", query = "SELECT p FROM Product p WHERE p.sizeno = :sizeno")
+    , @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Product p WHERE p.price = :price")
+    , @NamedQuery(name = "Product.findByQuantity", query = "SELECT p FROM Product p WHERE p.quantity = :quantity")})
+public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -43,11 +42,6 @@ public class Productadidas implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "PRODUCTNO")
     private String productno;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "PICNO")
-    private String picno;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -67,16 +61,15 @@ public class Productadidas implements Serializable {
     @Column(name = "QUANTITY")
     private Integer quantity;
 
-    public Productadidas() {
+    public Product() {
     }
 
-    public Productadidas(String productno) {
+    public Product(String productno) {
         this.productno = productno;
     }
 
-    public Productadidas(String productno, String picno, String productname) {
+    public Product(String productno, String productname) {
         this.productno = productno;
-        this.picno = picno;
         this.productname = productname;
     }
 
@@ -86,14 +79,6 @@ public class Productadidas implements Serializable {
 
     public void setProductno(String productno) {
         this.productno = productno;
-    }
-
-    public String getPicno() {
-        return picno;
-    }
-
-    public void setPicno(String picno) {
-        this.picno = picno;
     }
 
     public String getProductname() {
@@ -154,10 +139,10 @@ public class Productadidas implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Productadidas)) {
+        if (!(object instanceof Product)) {
             return false;
         }
-        Productadidas other = (Productadidas) object;
+        Product other = (Product) object;
         if ((this.productno == null && other.productno != null) || (this.productno != null && !this.productno.equals(other.productno))) {
             return false;
         }
@@ -166,7 +151,7 @@ public class Productadidas implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Productadidas[ productno=" + productno + " ]";
+        return "model.Product[ productno=" + productno + " ]";
     }
     
 }
