@@ -46,18 +46,11 @@ public class AllProductServlet extends HttpServlet {
                 throws ServletException, IOException {
         ProductadidasJpaController productAdidasCtrl = new ProductadidasJpaController(utx, emf);
         List<Productadidas> productAdidasL = productAdidasCtrl.findProductadidasEntities();
-        
-        ProductconverseJpaController productConverseCtrl = new ProductconverseJpaController(utx, emf);
-        List<Productconverse> productConverseL = productConverseCtrl.findProductconverseEntities();
-        
-        ProductgucciJpaController productGucciCtrl = new ProductgucciJpaController(utx, emf);
-        List<Productgucci> productGucciL = productGucciCtrl.findProductgucciEntities();
-        
-        
+
         
         request.setAttribute("Productadidas", productAdidasL);
-        request.setAttribute("Productconverse", productConverseL);
-        request.setAttribute("Productgucci", productGucciL);
+//        request.setAttribute("Productconverse", productConverseL);
+//        request.setAttribute("Productgucci", productGucciL);
         
         getServletContext().getRequestDispatcher("/AllProduct.jsp").forward(request, response);
     }

@@ -19,7 +19,7 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand active" href="#">HOPPER</a>
+                    <a class="navbar-brand active" href="Home.jsp">HOPPER</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li ><a href="#">LIMITED</a></li>

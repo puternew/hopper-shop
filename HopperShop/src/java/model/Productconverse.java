@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author INT303
+ * @author PANUPONG INTHILAD
  */
 @Entity
 @Table(name = "PRODUCTCONVERSE")

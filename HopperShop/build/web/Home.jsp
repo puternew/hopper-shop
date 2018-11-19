@@ -20,7 +20,7 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand active" href="#">HOPPER</a>
+                    <a class="navbar-brand active" href="Home.jsp">HOPPER</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li ><a href="#">LIMITED</a></li>
@@ -40,8 +40,8 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="Register"><span class="glyphicon glyphicon-user" ></span> Register</a></li>
-                    <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="Register.jsp"><span class="glyphicon glyphicon-user" ></span> Register</a></li>
+                    <li><a href="Login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </nav>
@@ -50,7 +50,7 @@
             <img src="hp-logo.png" alt="logo" width="800" height="300" >    
                 <h2>"Turn On Your Style"</h2>   
                 <form action="Allproduct" method="post">
-                    <button type="button" class="btn btn-default btn-lg"> LET's GO </button>
+                    <button type="submit" class="btn btn-default btn-lg"> LET's GO </button>
                 </form>     
            </center>     
     </div>

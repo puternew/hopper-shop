@@ -7,16 +7,28 @@ package Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.annotation.Resource;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.transaction.UserTransaction;
+import model.Account;
+import model.controller.AccountJpaController;
 
 /**
  *
  * @author INT303
  */
 public class LoginServlet extends HttpServlet {
+
+    @PersistenceUnit(unitName = "HopperShopPU")
+    EntityManagerFactory emf;
+    @Resource
+    UserTransaction utx;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,9 +40,31 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+                throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        if (session.getAttribute("account") != null) {
+            getServletContext().getRequestDispatcher("/Allproduct").forward(request, response);
+        } else {
+            if (email != null || password != null) {
+                AccountJpaController accountCtrl = new AccountJpaController(utx, emf);
+                Account account = accountCtrl.findAccountEmail(email);
+                if (account == null) {
+                    getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+                } else {
+                    if (account.getAccountpassword().equals(password)) {
+                        session.setAttribute("account", account);
+                        getServletContext().getRequestDispatcher("/Allproduct").forward(request, response);
+                    } else {
+                        getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+                    }
+                }
+            } else {
+                getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+            }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -44,7 +78,7 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+                throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -58,7 +92,7 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+                throws ServletException, IOException {
         processRequest(request, response);
     }
 

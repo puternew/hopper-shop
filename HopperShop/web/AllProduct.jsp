@@ -21,7 +21,7 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand active" href="#">HOPPER</a>
+                    <a class="navbar-brand active" href="Home.jsp">HOPPER</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li ><a href="#">LIMITED</a></li>
@@ -47,20 +47,20 @@
                 </ul>
             </div>
         </nav>
-        <div style="text-align: center">
+        <div style="text-align: center; width: 90%;margin-left: 5%;margin-right: 5%;">
+            
         <c:forEach items="${Productadidas}" var="Productadidas">
             
-            <div style="background-color: white; display: inline-block ; margin: 50px">
-                <img src="img/${Productadidas.picno}.jpg" width="120">
-                <td><p>${Productadidas.productname}</p>
-                <p>COLOR ${Productadidas.color}</p>
-                <p>SIZE ${Productadidas.sizeno} Us</p>
+            <div style="background-color: white; display: inline-block ; margin: 30px;width:15%;">
+                <img src="img/${Productadidas.productno}.jpg" width="120">
+                <td>
+                <p>${Productadidas.productname}</p>
+                <p>Color ${Productadidas.color}</p>
                 <p>${Productadidas.price} BATH</p></td>
-                <a href="AddItemToCart?productCode=${p.productcode}">
+                <a href="AddItemToCart?productCode=${Productadidas.productno}">
                                 <input type="button" value="Add to cart"/>
                             </a>
-            </div>
-            
+            </div> 
         </c:forEach>
         </div>
 
