@@ -42,6 +42,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="Register.jsp"><span class="glyphicon glyphicon-user" ></span> Register</a></li>
                     <li><a href="Login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="Logout"><span class="glyphicon glyphicon-log-out"></span> Loount</a></li>
                 </ul>
             </div>
         </nav>

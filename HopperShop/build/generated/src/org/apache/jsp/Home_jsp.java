@@ -81,6 +81,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <ul class=\"nav navbar-nav navbar-right\">\r\n");
       out.write("                    <li><a href=\"Register.jsp\"><span class=\"glyphicon glyphicon-user\" ></span> Register</a></li>\r\n");
       out.write("                    <li><a href=\"Login.jsp\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>\r\n");
+      out.write("                    <li><a href=\"Logout\"><span class=\"glyphicon glyphicon-log-out\"></span> Loount</a></li>\r\n");
       out.write("                </ul>\r\n");
       out.write("            </div>\r\n");
       out.write("        </nav>\r\n");
