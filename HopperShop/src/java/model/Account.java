@@ -6,79 +6,70 @@
 package model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author PANUPONG INTHILAD
+ * @author Student
  */
 @Entity
 @Table(name = "ACCOUNT")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a")
-    , @NamedQuery(name = "Account.findByAccountno", query = "SELECT a FROM Account a WHERE a.accountno = :accountno")
     , @NamedQuery(name = "Account.findByEmail", query = "SELECT a FROM Account a WHERE a.email = :email")
-    , @NamedQuery(name = "Account.findByAccountpassword", query = "SELECT a FROM Account a WHERE a.accountpassword = :accountpassword")
-    , @NamedQuery(name = "Account.findByAccountname", query = "SELECT a FROM Account a WHERE a.accountname = :accountname")
-    , @NamedQuery(name = "Account.findByTelno", query = "SELECT a FROM Account a WHERE a.telno = :telno")})
+    , @NamedQuery(name = "Account.findByPassword", query = "SELECT a FROM Account a WHERE a.password = :password")
+    , @NamedQuery(name = "Account.findByName", query = "SELECT a FROM Account a WHERE a.name = :name")
+    , @NamedQuery(name = "Account.findByTelno", query = "SELECT a FROM Account a WHERE a.telno = :telno")
+    , @NamedQuery(name = "Account.findByAddress", query = "SELECT a FROM Account a WHERE a.address = :address")
+    , @NamedQuery(name = "Account.findByProvince", query = "SELECT a FROM Account a WHERE a.province = :province")
+    , @NamedQuery(name = "Account.findByPostalcode", query = "SELECT a FROM Account a WHERE a.postalcode = :postalcode")})
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "ACCOUNTNO")
-    private String accountno;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "EMAIL")
     private String email;
     @Size(max = 50)
-    @Column(name = "ACCOUNTPASSWORD")
-    private String accountpassword;
+    @Column(name = "PASSWORD")
+    private String password;
     @Size(max = 50)
-    @Column(name = "ACCOUNTNAME")
-    private String accountname;
-    @Size(max = 50)
+    @Column(name = "NAME")
+    private String name;
     @Column(name = "TELNO")
-    private String telno;
-    @OneToMany(mappedBy = "accountno")
-    private List<Address> addressList;
+    private BigInteger telno;
+    @Size(max = 500)
+    @Column(name = "ADDRESS")
+    private String address;
+    @Size(max = 20)
+    @Column(name = "PROVINCE")
+    private String province;
+    @Column(name = "POSTALCODE")
+    private Long postalcode;
 
     public Account() {
     }
 
-    public Account(String accountno) {
-        this.accountno = accountno;
-    }
-
-    public Account(String accountno, String email) {
-        this.accountno = accountno;
+    public Account(String email) {
         this.email = email;
     }
 
-    public String getAccountno() {
-        return accountno;
-    }
-
-    public void setAccountno(String accountno) {
-        this.accountno = accountno;
+    public Account(String email, String password, String name, String telNo, String address, String province, String postalCode) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getEmail() {
@@ -89,43 +80,58 @@ public class Account implements Serializable {
         this.email = email;
     }
 
-    public String getAccountpassword() {
-        return accountpassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAccountpassword(String accountpassword) {
-        this.accountpassword = accountpassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getAccountname() {
-        return accountname;
+    public String getName() {
+        return name;
     }
 
-    public void setAccountname(String accountname) {
-        this.accountname = accountname;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getTelno() {
+    public BigInteger getTelno() {
         return telno;
     }
 
-    public void setTelno(String telno) {
+    public void setTelno(BigInteger telno) {
         this.telno = telno;
     }
 
-    @XmlTransient
-    public List<Address> getAddressList() {
-        return addressList;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddressList(List<Address> addressList) {
-        this.addressList = addressList;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public Long getPostalcode() {
+        return postalcode;
+    }
+
+    public void setPostalcode(Long postalcode) {
+        this.postalcode = postalcode;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (accountno != null ? accountno.hashCode() : 0);
+        hash += (email != null ? email.hashCode() : 0);
         return hash;
     }
 
@@ -136,7 +142,7 @@ public class Account implements Serializable {
             return false;
         }
         Account other = (Account) object;
-        if ((this.accountno == null && other.accountno != null) || (this.accountno != null && !this.accountno.equals(other.accountno))) {
+        if ((this.email == null && other.email != null) || (this.email != null && !this.email.equals(other.email))) {
             return false;
         }
         return true;
@@ -144,7 +150,11 @@ public class Account implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Account[ accountno=" + accountno + " ]";
+        return "model.Account[ email=" + email + " ]";
+    }
+
+    public Object getAccountpassword() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -1,0 +1,19 @@
+INSERT INTO ProductVans(productID,productNo,productName,brand,color,price)
+VALUES
+(110101,'Vs1-gy','Vans Old Skool','Vans','Gray',2700.0),
+(110102,'Vs1-bl','Vans Old Skool','Vans','Blue',2700.0),
+(110103,'Vs1-bk','Vans Old Skool','Vans','Black',2700.0),
+(110104,'Vs1-gr','Vans Old Skool','Vans','Green',2700.0),
+(110105,'Vs1-og','Vans Old Skool','Vans','Orange',2700.0),
+(110106,'Vs1-pi','Vans Old Skool','Vans','Pink',2700.0),
+(110107,'Vs1-r','Vans Old Skool','Vans','Red',2700.0),
+(110108,'Vs1-wh','Vans Old Skool','Vans','White',2700.0),
+(110109,'Vs1-yl','Vans Old Skool','Vans','Yellow',2700.0),
+-------------------------------------Vans---------------------------------------
+(110201,'Vs2-bk','Vans SK8-Hi MTE','Vans','Black',3150.0),
+(110202,'Vs2-br','Vans SK8-Hi MTE','Vans','Brown',3150.0),
+(110203,'Vs2-gr','Vans SK8-Hi MTE','Vans','Green',3150.0),
+-------------------------------------Vans---------------------------------------
+(110301,'Vs3-bk','Vans UltraRange','Vans','Black',4050.0),
+(110302,'Vs3-cr','Vans UltraRange','Vans','Cream',4050.0),
+(110303,'Vs3-br','Vans UltraRange','Vans','Brown',4050.0);

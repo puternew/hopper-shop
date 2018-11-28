@@ -1,0 +1,52 @@
+INSERT INTO ProductNike(productID,productNo,productName,brand,color,price)
+VALUES
+(60101,'Nk1-bk','Nike Air Force 1 Low','Nike','Black',4050.0),
+(60102,'Nk1-r','Nike Air Force 1 Low','Nike','Red',4050.0),
+(60103,'Nk1-sv','Nike Air Force 1 Low','Nike','Silver',4050.0),
+(60104,'Nk1-wh','Nike Air Force 1 Low','Nike','White',4050.0),
+----------------------------------Nike------------------------------------------
+(60201,'Nk2-bk','Nike Air Max 97 Premium','Nike','Black',7650.0),
+(60202,'Nk2-gr','Nike Air Max 97 Premium','Nike','Green',7650.0),
+(60203,'Nk2-gy','Nike Air Max 97 Premium','Nike','Gray',7650.0),
+(60204,'Nk2-pi','Nike Air Max 97 Premium','Nike','Pink',7650.0),
+(60205,'Nk2-sv','Nike Air Max 97 Premium','Nike','Silver',7650.0),
+(60206,'Nk2-wh','Nike Air Max 97 Premium','Nike','White',7650.0),
+----------------------------------Nike------------------------------------------
+(60301,'Nk3-wh','Nike Air Max 97 Ultra 17','Nike','White',7200.0),
+(60302,'Nk3-bk','Nike Air Max 97 Ultra 17','Nike','Black',7200.0),
+(60303,'Nk3-bl','Nike Air Max 97 Ultra 17','Nike','Blue',7200.0),
+(60304,'Nk3-gol','Nike Air Max 97 Ultra 17','Nike','Golden',7200.0),
+(60305,'Nk3-sv','Nike Air Max 97 Ultra 17','Nike','Silver',7200.0),
+----------------------------------Nike------------------------------------------
+(60401,'Nk4-bk','Nike Air Max 270','Nike','Black',6750.0),
+(60402,'Nk4-gr','Nike Air Max 270','Nike','Green',6750.0),
+(60403,'Nk4-bl','Nike Air Max 270','Nike','Blue',6750.0),
+(60404,'Nk4-r','Nike Air Max 270','Nike','Red',6750.0),
+(60405,'Nk4-wh','Nike Air Max 270','Nike','White',6750.0),
+----------------------------------Nike------------------------------------------
+(60501,'Nk5-wh','Nike Air Presto','Nike','White',5400.0),
+(60502,'Nk5-bk','Nike Air Presto','Nike','Black',5400.0),
+(60503,'Nk5-bl','Nike Air Presto','Nike','Blue',5400.0),
+(60504,'Nk5-yl','Nike Air Presto','Nike','Yellow',5400.0),
+----------------------------------Nike------------------------------------------
+(60601,'Nk6-bk','Nike Air VaporMax Plus','Nike','Black',8550.0),
+(60602,'Nk6-og','Nike Air VaporMax Plus','Nike','Orange',8550.0),
+(60603,'Nk6-au','Nike Air VaporMax Plus','Nike','Aurora',8550.0),
+(60604,'Nk6-bl','Nike Air VaporMax Plus','Nike','Blue',8550.0),
+(60605,'Nk6-wh','Nike Air VaporMax Plus','Nike','White',8550.0),
+----------------------------------Nike------------------------------------------
+(60701,'Nk7-bl','Nike Air Zoom Mariah Flyknit Racer','Nike','Blue',6750.0),
+(60702,'Nk7-bk','Nike Air Zoom Mariah Flyknit Racer','Nike','Black',6750.0),
+(60703,'Nk7-gy','Nike Air Zoom Mariah Flyknit Racer','Nike','Gray',6750.0),
+(60704,'Nk7-wh','Nike Air Zoom Mariah Flyknit Racer','Nike','White',6750.0),
+----------------------------------Nike------------------------------------------
+(60801,'Nk8-wh','Nike Classic Cortez','Nike','White',3150.0),
+(60802,'Nk8-bk','Nike Classic Cortez','Nike','Black',3150.0),
+(60803,'Nk8-wh2','Nike Classic Cortez','Nike','White-Red',3150.0),
+(60804,'Nk8-wh3','Nike Classic Cortez','Nike','White-Blue',3150.0),
+(60805,'Nk8-wh4','Nike Classic Cortez','Nike','White-Black',3150.0),
+----------------------------------Nike------------------------------------------
+(60901,'Nk9-wh','Nike Tanjun','Nike','White',2930.0),
+(60902,'Nk9-bk','Nike Tanjun','Nike','Black',2930.0),
+(60903,'Nk9-bl','Nike Tanjun','Nike','Blue',2930.0),
+(60904,'Nk9-r','Nike Tanjun','Nike','Red',2930.0);

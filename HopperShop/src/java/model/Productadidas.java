@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author PANUPONG INTHILAD
+ * @author Student
  */
 @Entity
 @Table(name = "PRODUCTADIDAS")
@@ -27,11 +27,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Productadidas.findAll", query = "SELECT p FROM Productadidas p")
     , @NamedQuery(name = "Productadidas.findByProductid", query = "SELECT p FROM Productadidas p WHERE p.productid = :productid")
-    , @NamedQuery(name = "Productadidas.findByProductno", query = "SELECT p FROM Productadidas p WHERE p.productno = :productno")
-    , @NamedQuery(name = "Productadidas.findByProductname", query = "SELECT p FROM Productadidas p WHERE p.productname = :productname")
     , @NamedQuery(name = "Productadidas.findByBrand", query = "SELECT p FROM Productadidas p WHERE p.brand = :brand")
     , @NamedQuery(name = "Productadidas.findByColor", query = "SELECT p FROM Productadidas p WHERE p.color = :color")
-    , @NamedQuery(name = "Productadidas.findByPrice", query = "SELECT p FROM Productadidas p WHERE p.price = :price")})
+    , @NamedQuery(name = "Productadidas.findByPrice", query = "SELECT p FROM Productadidas p WHERE p.price = :price")
+    , @NamedQuery(name = "Productadidas.findByProductname", query = "SELECT p FROM Productadidas p WHERE p.productname = :productname")
+    , @NamedQuery(name = "Productadidas.findByProductno", query = "SELECT p FROM Productadidas p WHERE p.productno = :productno")})
 public class Productadidas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,25 +40,21 @@ public class Productadidas implements Serializable {
     @NotNull
     @Column(name = "PRODUCTID")
     private Integer productid;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "PRODUCTNO")
-    private String productno;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "PRODUCTNAME")
-    private String productname;
-    @Size(max = 50)
+    @Size(max = 255)
     @Column(name = "BRAND")
     private String brand;
-    @Size(max = 50)
+    @Size(max = 255)
     @Column(name = "COLOR")
     private String color;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "PRICE")
     private Double price;
+    @Size(max = 255)
+    @Column(name = "PRODUCTNAME")
+    private String productname;
+    @Size(max = 255)
+    @Column(name = "PRODUCTNO")
+    private String productno;
 
     public Productadidas() {
     }
@@ -67,34 +63,12 @@ public class Productadidas implements Serializable {
         this.productid = productid;
     }
 
-    public Productadidas(Integer productid, String productno, String productname) {
-        this.productid = productid;
-        this.productno = productno;
-        this.productname = productname;
-    }
-
     public Integer getProductid() {
         return productid;
     }
 
     public void setProductid(Integer productid) {
         this.productid = productid;
-    }
-
-    public String getProductno() {
-        return productno;
-    }
-
-    public void setProductno(String productno) {
-        this.productno = productno;
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname;
     }
 
     public String getBrand() {
@@ -119,6 +93,22 @@ public class Productadidas implements Serializable {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname;
+    }
+
+    public String getProductno() {
+        return productno;
+    }
+
+    public void setProductno(String productno) {
+        this.productno = productno;
     }
 
     @Override

@@ -25,11 +25,11 @@ import model.controller.AccountJpaController;
  */
 public class LoginServlet extends HttpServlet {
 
-    @PersistenceUnit(unitName = "HopperShopPU")
-    EntityManagerFactory emf;
-    @Resource
-    UserTransaction utx;
 
+        @PersistenceUnit(unitName = "HopperShopPU")
+        EntityManagerFactory emf;
+        @Resource
+        UserTransaction utx;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,10 +42,10 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        if (session.getAttribute("account") != null) {
+        String password = request.getParameter("accountPassword");
+        if (session.getAttribute("acc") != null) {
             getServletContext().getRequestDispatcher("/Allproduct").forward(request, response);
         } else {
             if (email != null || password != null) {

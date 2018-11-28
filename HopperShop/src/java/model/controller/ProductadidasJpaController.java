@@ -21,7 +21,7 @@ import model.controller.exceptions.RollbackFailureException;
 
 /**
  *
- * @author PANUPONG INTHILAD
+ * @author Student
  */
 public class ProductadidasJpaController implements Serializable {
 

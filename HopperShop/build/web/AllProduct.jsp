@@ -24,26 +24,20 @@
                     <a class="navbar-brand active" href="Home.jsp">HOPPER</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li ><a href="#">LIMITED</a></li>
+                    <li ><a href="PageBrand/pageLimited.jsp">LIMITED</a></li>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BRAND<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">ADIDAS</a></li>
-                            <li><a href="#">CONVERSE</a></li>
-                            <li><a href="#">GUCCI</a></li>
-                            <li><a href="#">NEW BALANCE</a></li>
-                            <li><a href="#">NIKE</a></li>
-                            <li><a href="#">ONISUKA TIGER</a></li>
-                            <li><a href="#">PUMA</a></li>
-                            <li><a href="#">REBOX</a></li>
-                            <li><a href="#">UNDER ARMOR</a></li>
-                            <li><a href="#">VANS</a></li>
+                            <li><a href="PageBrand/pageAdidas.jsp">ADIDAS</a></li>
+                            <li><a href="PageBrand/pageConverse.jsp">CONVERSE</a></li>
+                            <li><a href="PageBrand/pageNike.jsp">NIKE</a></li>
+                            <li><a href="PageBrand/pageVans.jsp">VANS</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="Register.jsp"><span class="glyphicon glyphicon-user" ></span> Register</a></li>
+                    <li><a href="Register"><span class="glyphicon glyphicon-user" ></span> Register</a></li>
                     <li><a href="Login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <li><a href="Logout"><span class="glyphicon glyphicon-log-out"></span> Loount</a></li>
+                    <li><a href="Logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                 </ul>
             </div>
         </nav>

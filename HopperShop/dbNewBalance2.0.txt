@@ -1,0 +1,38 @@
+INSERT INTO ProductNewbalance(productID,productNo,productName,brand,color,price)
+VALUES
+(50101,'Newb1-wh','New Balance 247 Classic','New Balance','White',3600.0),
+(50102,'Newb1-bk','New Balance 247 Classic','New Balance','Black',3600.0),
+(50103,'Newb1-bl','New Balance 247 Classic','New Balance','Blue',3600.0),
+(50104,'Newb1-pi','New Balance 247 Classic','New Balance','Pink',3600.0),
+(50105,'Newb1-r','New Balance 247 Classic','New Balance','Red',3600.0),
+(50106,'Newb1-gy','New Balance 247 Classic','New Balance','Gray',3600.0);
+----------------------------------New Balance-----------------------------------
+(50201,'Newb2-gy','New Balance 420','New Balance','Gray',3600.0),
+(50202,'Newb2-bl','New Balance 420','New Balance','Black',3600.0),
+(50203,'Newb2-r','New Balance 420','New Balance','Red',3600.0),
+(50204,'Newb2-og','New Balance 420','New Balance','Orange',3600.0),
+----------------------------------New Balance-----------------------------------
+(50301,'Newb3-bl','New Balance 515','New Balance','Blue',3150.0),
+(50302,'Newb3-bk','New Balance 515','New Balance','Black',3150.0),
+(50303,'Newb3-pi','New Balance 515','New Balance','Pink',3150.0),
+(50304,'Newb3-r','New Balance 515','New Balance','Red',3150.0),
+(50305,'Newb3-gy','New Balance 515','New Balance','Gray',3150.0),
+----------------------------------New Balance-----------------------------------
+(50401,'Newb4-gy','New Balance 574 Core','New Balance','Gray',3380.0),
+(50402,'Newb4-bk','New Balance 574 Core','New Balance','Black',3380.0),
+(50403,'Newb4-bl','New Balance 574 Core','New Balance','Blue',3380.0),
+(50404,'Newb4-og','New Balance 574 Core','New Balance','Orange',3380.0),
+(50405,'Newb4-r','New Balance 574 Core','New Balance','Red',3380.0),
+----------------------------------New Balance-----------------------------------
+(50501,'Newb5-r','New Balance 574 Sport','New Balance','Red',4500.0),
+(50502,'Newb5-bl','New Balance 574 Sport','New Balance','Blue',4500.0),
+(50503,'Newb5-bl2','New Balance 574 Sport','New Balance','Blue2',4500.0),
+(50504,'Newb5-bk','New Balance 574 Sport','New Balance','Black',4500.0),
+(50505,'Newb5-gr','New Balance 574 Sport','New Balance','Green',4500.0),
+(50506,'Newb5-wh','New Balance 574 Sport','New Balance','White',4500.0),
+----------------------------------New Balance-----------------------------------
+(50601,'Newb6-wh','New Balance 996','New Balance','White',7200.0),
+(50602,'Newb6-bk','New Balance 996','New Balance','Black',7200.0),
+(50603,'Newb6-br','New Balance 996','New Balance','Brown',7200.0),
+(50604,'Newb6-gr','New Balance 996','New Balance','Green',7200.0),
+(50605,'Newb6-bl','New Balance 996','New Balance','Blue',7200.0);

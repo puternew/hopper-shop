@@ -33,7 +33,7 @@
                             <li><a href="#">NIKE</a></li>
                             <li><a href="#">ONISUKA TIGER</a></li>
                             <li><a href="#">PUMA</a></li>
-                            <li><a href="#">REBOX</a></li>
+                            <li><a href="#">REEBOK</a></li>
                             <li><a href="#">UNDER ARMOR</a></li>
                             <li><a href="#">VANS</a></li>
                         </ul>
@@ -56,7 +56,7 @@
                                         <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+                                        <input type="password" name="accountPassword" id="password" class="form-control input-sm" placeholder="Password">
                                     </div>
                                 </div>
                                 <input type="submit" value="Login" class="btn btn-info btn-block">

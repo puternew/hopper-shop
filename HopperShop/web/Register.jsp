@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-     <head>
+    <head>
         <title>HOPPER SHOP</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,35 +61,35 @@
                                     <div class="form-group">
                                         <input type="password" name="accountPassword" id="accountPassword" class="form-control input-sm" placeholder="Password">
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <input type="textbox" name="accountName" id="accountName" class="form-control input-sm" placeholder="Your Name">
                                     </div>
-                                    
+
 
                                     <div class="form-group">
                                         <input type="textbox" name="telNo" id="telNo" class="form-control input-sm" placeholder="Phone Number">
                                     </div>
-                                    
-                                  
+
+
                                     <div class="form-group">
                                         <div class="form-group">
                                             <label for="comment">Address:</label>
                                             <textarea name="address" class="form-control input-sm" rows="5" id="Address"></textarea>
                                         </div>
                                     </div>
-                                   
-                                    	<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			    						<input type="textbox" name="province" id="province" class="form-control input-sm" placeholder="Province">
-			    					</div>
-			    				</div>
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			    						<input type="textbox" name="postalCode" id="postalCode" class="form-control input-sm" placeholder="Postal Code">
-			    					</div>
-			    				</div>
-                                 
+
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="textbox" name="province" id="province" class="form-control input-sm" placeholder="Province">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="textbox" name="postalCode" id="postalCode" class="form-control input-sm" placeholder="Postal Code">
+                                        </div>
+                                    </div>
+
                                     <input type="submit" value="Register" class="btn btn-info btn-block">
 
                                 </form>

@@ -10,8 +10,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -21,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author PANUPONG INTHILAD
+ * @author Student
  */
 @Entity
 @Table(name = "ADDRESS")
@@ -30,45 +28,36 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a")
     , @NamedQuery(name = "Address.findByAddressno", query = "SELECT a FROM Address a WHERE a.addressno = :addressno")
     , @NamedQuery(name = "Address.findByAddresstext", query = "SELECT a FROM Address a WHERE a.addresstext = :addresstext")
+    , @NamedQuery(name = "Address.findByPostcode", query = "SELECT a FROM Address a WHERE a.postcode = :postcode")
     , @NamedQuery(name = "Address.findByProvince", query = "SELECT a FROM Address a WHERE a.province = :province")
-    , @NamedQuery(name = "Address.findByPostcode", query = "SELECT a FROM Address a WHERE a.postcode = :postcode")})
+    , @NamedQuery(name = "Address.findByAccountno", query = "SELECT a FROM Address a WHERE a.accountno = :accountno")})
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 255)
     @Column(name = "ADDRESSNO")
     private String addressno;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 200)
+    @Size(max = 255)
     @Column(name = "ADDRESSTEXT")
     private String addresstext;
-    @Size(max = 50)
-    @Column(name = "PROVINCE")
-    private String province;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
+    @Size(max = 255)
     @Column(name = "POSTCODE")
     private String postcode;
-    @JoinColumn(name = "ACCOUNTNO", referencedColumnName = "ACCOUNTNO")
-    @ManyToOne
-    private Account accountno;
+    @Size(max = 255)
+    @Column(name = "PROVINCE")
+    private String province;
+    @Size(max = 255)
+    @Column(name = "ACCOUNTNO")
+    private String accountno;
 
     public Address() {
     }
 
     public Address(String addressno) {
         this.addressno = addressno;
-    }
-
-    public Address(String addressno, String addresstext, String postcode) {
-        this.addressno = addressno;
-        this.addresstext = addresstext;
-        this.postcode = postcode;
     }
 
     public String getAddressno() {
@@ -87,14 +76,6 @@ public class Address implements Serializable {
         this.addresstext = addresstext;
     }
 
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
     public String getPostcode() {
         return postcode;
     }
@@ -103,11 +84,19 @@ public class Address implements Serializable {
         this.postcode = postcode;
     }
 
-    public Account getAccountno() {
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getAccountno() {
         return accountno;
     }
 
-    public void setAccountno(Account accountno) {
+    public void setAccountno(String accountno) {
         this.accountno = accountno;
     }
 

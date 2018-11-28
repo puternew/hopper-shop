@@ -1,0 +1,8 @@
+CREATE TABLE Product...ชื่อ product...(
+    productID int primary key,
+    productNo varchar(50) not null UNIQUE,
+    productName varchar(50) not null,
+    brand varchar(50),
+    color varchar(50),
+    price double
+);

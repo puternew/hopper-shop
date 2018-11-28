@@ -14,7 +14,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
-import model.Account;
 import model.Address;
 import model.controller.exceptions.NonexistentEntityException;
 import model.controller.exceptions.PreexistingEntityException;
@@ -22,7 +21,7 @@ import model.controller.exceptions.RollbackFailureException;
 
 /**
  *
- * @author PANUPONG INTHILAD
+ * @author Student
  */
 public class AddressJpaController implements Serializable {
 
@@ -42,16 +41,7 @@ public class AddressJpaController implements Serializable {
         try {
             utx.begin();
             em = getEntityManager();
-            Account accountno = address.getAccountno();
-            if (accountno != null) {
-                accountno = em.getReference(accountno.getClass(), accountno.getAccountno());
-                address.setAccountno(accountno);
-            }
             em.persist(address);
-            if (accountno != null) {
-                accountno.getAddressList().add(address);
-                accountno = em.merge(accountno);
-            }
             utx.commit();
         } catch (Exception ex) {
             try {
@@ -75,22 +65,7 @@ public class AddressJpaController implements Serializable {
         try {
             utx.begin();
             em = getEntityManager();
-            Address persistentAddress = em.find(Address.class, address.getAddressno());
-            Account accountnoOld = persistentAddress.getAccountno();
-            Account accountnoNew = address.getAccountno();
-            if (accountnoNew != null) {
-                accountnoNew = em.getReference(accountnoNew.getClass(), accountnoNew.getAccountno());
-                address.setAccountno(accountnoNew);
-            }
             address = em.merge(address);
-            if (accountnoOld != null && !accountnoOld.equals(accountnoNew)) {
-                accountnoOld.getAddressList().remove(address);
-                accountnoOld = em.merge(accountnoOld);
-            }
-            if (accountnoNew != null && !accountnoNew.equals(accountnoOld)) {
-                accountnoNew.getAddressList().add(address);
-                accountnoNew = em.merge(accountnoNew);
-            }
             utx.commit();
         } catch (Exception ex) {
             try {
@@ -124,11 +99,6 @@ public class AddressJpaController implements Serializable {
                 address.getAddressno();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The address with id " + id + " no longer exists.", enfe);
-            }
-            Account accountno = address.getAccountno();
-            if (accountno != null) {
-                accountno.getAddressList().remove(address);
-                accountno = em.merge(accountno);
             }
             em.remove(address);
             utx.commit();

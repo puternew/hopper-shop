@@ -1,0 +1,23 @@
+INSERT INTO ProductUnderArmour(productID,productNo,productName,brand,color,price)
+VALUES
+(100101,'Und1-wh','Under Armour Charged All-Day','Under Armour','White',3600.0),
+(100102,'Und1-bk','Under Armour Charged All-Day','Under Armour','Black',3600.0),
+(100103,'Und1-bl','Under Armour Charged All-Day','Under Armour','Blue',3600.0),
+(100104,'Und1-gr','Under Armour Charged All-Day','Under Armour','Green',3600.0),
+-------------------------------------Under Armour-------------------------------------
+(100201,'Und2-gr','Under Armour HOVR SLK','Under Armour','Green',4500.0),
+(100202,'Und2-bk','Under Armour HOVR SLK','Under Armour','Black',4500.0),
+(100203,'Und2-wh','Under Armour HOVR SLK','Under Armour','White',4500.0),
+-------------------------------------Under Armour-------------------------------------
+(100301,'Und3-wh','Under Armour RailFit','Under Armour','White',4500.0),
+(100302,'Und3-bk','Under Armour RailFit','Under Armour','Black',4500.0),
+(100303,'Und3-bl','Under Armour RailFit','Under Armour','Blue',4500.0),
+(100304,'Und3-cm','Under Armour RailFit','Under Armour','Camo',4500.0),
+(100305,'Und3-r','Under Armour RailFit','Under Armour','Red',4500.0),
+-------------------------------------Under Armour-------------------------------------
+(100401,'Und4-r','Under Armour Street Encounter IV','Under Armour','Red',2700.0),
+(100402,'Und4-bk','Under Armour Street Encounter IV','Under Armour','Black',2700.0),
+(100403,'Und4-bl','Under Armour Street Encounter IV','Under Armour','Blue',2700.0),
+(100404,'Und4-cr','Under Armour Street Encounter IV','Under Armour','Cream',2700.0),
+(100405,'Und4-gy','Under Armour Street Encounter IV','Under Armour','Gray',2700.0);
+

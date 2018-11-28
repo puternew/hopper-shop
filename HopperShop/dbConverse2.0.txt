@@ -1,0 +1,39 @@
+INSERT INTO ProductConverse(productID,productNo,productName,brand,color,price)
+VALUES   ---------------------------------Converse------------------------------
+(20101,'Conv1-bk','Converse Chuck 70 High Top','Converse','Black',3830.0),
+(20102,'Conv1-bl','Converse Chuck 70 High Top','Converse','Blue',3830.0),
+(20103,'Conv1-gr','Converse Chuck 70 High Top','Converse','Green',3830.0),
+(20104,'Conv1-gy','Converse Chuck 70 High Top','Converse','Gray',3830.0),
+(20105,'Conv1-og','Converse Chuck 70 High Top','Converse','Orange',3830.0),
+(20106,'Conv1-r','Converse Chuck 70 High Top','Converse','Red',3830.0),
+------------------------------------------------------------------------------
+(20201,'Conv2-bk','Converse Chuck II High Top','Converse','Black',3380.0),
+(20202,'Conv2-bl','Converse Chuck II High Top','Converse','Blue',3380.0),
+(20203,'Conv2-br','Converse Chuck II High Top','Converse','Brown',3380.0),
+(20204,'Conv2-gr','Converse Chuck II High Top','Converse','Green',3380.0),
+(20205,'Conv2-yl','Converse Chuck II High Top','Converse','Yellow',3380.0),
+(20206,'Conv2-r','Converse Chuck II High Top','Converse','Red',3380.0),
+(20207,'Conv2-wh','Converse Chuck II High Top','Converse','White',3380.0),
+(20208,'Conv2-sn','Converse Chuck II High Top','Converse','Snake',3380.0),
+------------------------------------------------------------------------------
+(20301,'Conv3-cr','Converse Chuck Taylor All Star Core Ox','Converse','Cream',2250.0),
+(20302,'Conv3-bk','Converse Chuck Taylor All Star Core Ox','Converse','Black',2250.0),
+(20303,'Conv3-bk2','Converse Chuck Taylor All Star Core Ox','Converse','Black2',2250.0),
+(20304,'Conv3-bl','Converse Chuck Taylor All Star Core Ox','Converse','Blue',2250.0),
+(20305,'Conv3-pi','Converse Chuck Taylor All Star Core Ox','Converse','Pink',2250.0),
+(20306,'Conv3-r','Converse Chuck Taylor All Star Core Ox','Converse','Red',2250.0),
+(20307,'Conv3-r2','Converse Chuck Taylor All Star Core Ox','Converse','Red2',2250.0),
+(20308,'Conv3-wh','Converse Chuck Taylor All Star Core Ox','Converse','White',2250.0),
+------------------------------------------------------------------------------
+(20401,'Conv4-bk','Converse Chuck Taylor All Star Low Top','Converse','Black',2250.0),
+(20402,'Conv4-bl','Converse Chuck Taylor All Star Low Top','Converse','Blue',2250.0),
+(20403,'Conv4-bl2','Converse Chuck Taylor All Star Low Top','Converse','Blue2',2250.0),
+(20404,'Conv4-cr','Converse Chuck Taylor All Star Low Top','Converse','Cream',2250.0),
+(20405,'Conv4-gr','Converse Chuck Taylor All Star Low Top','Converse','Green',2250.0),
+(20406,'Conv4-pi','Converse Chuck Taylor All Star Low Top','Converse','Pink',2250.0),
+(20407,'Conv4-r','Converse Chuck Taylor All Star Low Top','Converse','Red',2250.0),
+(20408,'Conv4-yl','Converse Chuck Taylor All Star Low Top','Converse','Yellow',2250.0),
+------------------------------------------------------------------------------
+(20501,'Conv5-bl','Converse One Star Suede Low Top','Converse','Blue',3600.0),
+(20502,'Conv5-r','Converse One Star Suede Low Top','Converse','Red',3600.0),
+(20503,'Conv5-8wh','Converse One Star Suede Low Top','Converse','White',3600.0);
