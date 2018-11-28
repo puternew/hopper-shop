@@ -4,6 +4,7 @@
     Author     : PANUPONG  INTHILAD
 --%>
 
+<%@page import="model.Cart"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,13 +32,33 @@
                         </ul>
                     </li>
                 </ul>
+                
                 <ul class="nav navbar-nav navbar-right">
 
-                    
-                        <% if (session.getAttribute("account") == null) { %>
+
+                    <% if (session.getAttribute("account") == null) { %>
+                    <li class="list-inline-item">
+                    <a class="nav-link" href="Cart"style="color: #D5C4AD;">
+                        <% Cart cart = (Cart) session.getAttribute("cart"); %>
+                        <% if (cart != null && cart.getTotalQuantity() != 0) { %>
+                        <i class="fas fa-shopping-cart"></i> SHOPPING CART (${cart.totalQuantity}) 
+                        <% } else { %>
+                        <i class="fas fa-shopping-cart"></i> SHOPPING CART (0) 
+                        <% }%>
+                    </a>
+                </li>
                     <li><a href="Login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     <li><a href="Register"><span class="glyphicon glyphicon-user" ></span> Register</a></li>
-                        <% } else {%>
+                        <% } else {%><li class="list-inline-item">
+                    <a class="nav-link" href="Cart"style="color: #D5C4AD;">
+                        <% Cart cart = (Cart) session.getAttribute("cart"); %>
+                        <% if (cart != null && cart.getTotalQuantity() != 0) { %>
+                        <i class="fas fa-shopping-cart"></i> SHOPPING CART (${cart.totalQuantity}) 
+                        <% } else { %>
+                        <i class="fas fa-shopping-cart"></i> SHOPPING CART (0) 
+                        <% }%>
+                    </a>
+                </li>
                     <li><a href="#" style="color: #D5C4AD;"><span class="glyphicon glyphicon-user"></span> ${account.accountname}</a></li>
                     <li><a href="Logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                         <% }%>
@@ -45,16 +66,7 @@
             </div>
         </nav>
         <script>
-            //Scrolling Effect
-            $(window).on('scroll', function () {
-                if ($(window).scrollTop()) {
-                    $('.navbarLogo').addClass('navbarLogoSlide');
-                    $('.Logo').addClass('LogoSlide');
-                } else {
-                    $('.navbarLogo').removeClass('navbarLogoSlide');
-                    $('.Logo').removeClass('LogoSlide');
-                }
-            });
+
             //Login
             function Login() {
                 document.getElementById('login').style.display = 'block';

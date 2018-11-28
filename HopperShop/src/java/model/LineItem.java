@@ -12,9 +12,9 @@ import java.math.BigDecimal;
  * @author PANUPONG INTHILAD
  */
 public class LineItem {
-    Product product;
-    int quantity;
-    Double totalPrice;
+    private Product product;
+    private int quantity;
+    private double totalPrice;
 
     public LineItem() {
     }
@@ -25,13 +25,17 @@ public class LineItem {
         TotalPrice();
     }
 
+    LineItem(Product p) {
+         this.product = product;
+         this.quantity++;
+    }
+
     public Product getProduct() {
         return product;
     }
 
     public void setProduct(Product product) {
         this.product = product;
-        this.quantity++;
     }
 
     public int getQuantity() {

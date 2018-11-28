@@ -68,8 +68,6 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </form>     \r\n");
       out.write("           </center>     \r\n");
       out.write("    </div>\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
       out.write("</body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {

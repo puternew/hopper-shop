@@ -21,20 +21,20 @@
         <jsp:include page="Components/Navbar.jsp"/>
         <div style="text-align: center; width: 90%;margin-left: 5%;margin-right: 5%;">
             
-        <c:forEach items="${Productadidas}" var="Productadidas">
+        <c:forEach items="${Product}" var="Product">
             
             <div style="background-color: white; display: inline-block ; margin: 30px;width:15%;">
-                <img src="img/${Productadidas.productno}.jpg" width="120">
+                <img src="img/${Product.productno}.jpg" width="120">
                 <td>
-                <p>${Productadidas.productname}</p>
-                <p>Color ${Productadidas.color}</p>
-                <p>${Productadidas.price} BATH</p></td>
-                <a href="AddItemToCart?productCode=${Productadidas.productno}">
-                                <input type="button" value="Add to cart"/>
-                            </a>
-            </div> 
+                <p>${Product.productname}</p>
+                <p>Color ${Product.color}</p>
+                <p>${Product.price} BATH</p></td>
+                <form action="AddToCart" method="post">
+                        <input type="hidden" name="productid" value="${Product.productid}"> 
+                        <input type="submit" value="BUY">
+                    </form>
+            </div>
         </c:forEach>
         </div>
-
     </body>
 </html>

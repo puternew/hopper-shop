@@ -7,33 +7,17 @@ package Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.annotation.Resource;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.transaction.UserTransaction;
-import model.Product;
-import model.Productadidas;
-import model.Productconverse;
-import model.Productgucci;
-import model.controllor.ProductJpaController;
-import model.controllor.ProductadidasJpaController;
-
-
 
 /**
  *
  * @author PANUPONG INTHILAD
  */
-public class AllProductServlet extends HttpServlet {
-    @PersistenceUnit (unitName = "HopperShopPU")
-    EntityManagerFactory emf;
-    @Resource
-    UserTransaction utx;
+public class CartServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,18 +29,7 @@ public class AllProductServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-        ProductJpaController productCtrl = new ProductJpaController(utx, emf);
-        List<Product> productL = productCtrl.findProductEntities();
-
-
-        
-        request.setAttribute("Product", productL);
-
-//        request.setAttribute("Productconverse", productConverseL);
-//        request.setAttribute("Productgucci", productGucciL);
-        
-
-        getServletContext().getRequestDispatcher("/AllProduct.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/Cart.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
