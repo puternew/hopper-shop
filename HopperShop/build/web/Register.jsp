@@ -17,30 +17,7 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand active" href="Home.jsp">HOPPER</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li ><a href="#">LIMITED</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BRAND<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">ADIDAS</a></li>
-                            <li><a href="#">CONVERSE</a></li>
-                            <li><a href="#">GUCCI</a></li>
-                            <li><a href="#">NEW BALANCE</a></li>
-                            <li><a href="#">NIKE</a></li>
-                            <li><a href="#">ONISUKA TIGER</a></li>
-                            <li><a href="#">PUMA</a></li>
-                            <li><a href="#">REBOX</a></li>
-                            <li><a href="#">UNDER ARMOR</a></li>
-                            <li><a href="#">VANS</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <jsp:include page="Components/Navbar.jsp"/>
 
         <div class="Register-form">
 
