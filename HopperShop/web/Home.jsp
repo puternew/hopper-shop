@@ -23,13 +23,13 @@
                     <a class="navbar-brand active" href="Home.jsp">HOPPER</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li ><a href="PageBrand/pageLimited.jsp">LIMITED</a></li>
+                    <li ><a href="pageLimited.jsp">LIMITED</a></li>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BRAND<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="PageBrand/pageAdidas.jsp">ADIDAS</a></li>
-                            <li><a href="PageBrand/pageConverse.jsp">CONVERSE</a></li>
-                            <li><a href="PageBrand/pageNike.jsp">NIKE</a></li>
-                            <li><a href="PageBrand/pageVans.jsp">VANS</a></li>
+                            <li><a href="pageAdidas.jsp">ADIDAS</a></li>
+                            <li><a href="pageConverse.jsp">CONVERSE</a></li>
+                            <li><a href="pageNike.jsp">NIKE</a></li>
+                            <li><a href="pageVans.jsp">VANS</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -19,51 +19,66 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Student
+ * @author PANUPONG INTHILAD
  */
 @Entity
 @Table(name = "PRODUCTCONVERSE")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Productconverse.findAll", query = "SELECT p FROM Productconverse p")
+    , @NamedQuery(name = "Productconverse.findByProductid", query = "SELECT p FROM Productconverse p WHERE p.productid = :productid")
     , @NamedQuery(name = "Productconverse.findByProductno", query = "SELECT p FROM Productconverse p WHERE p.productno = :productno")
+    , @NamedQuery(name = "Productconverse.findByProductname", query = "SELECT p FROM Productconverse p WHERE p.productname = :productname")
     , @NamedQuery(name = "Productconverse.findByBrand", query = "SELECT p FROM Productconverse p WHERE p.brand = :brand")
     , @NamedQuery(name = "Productconverse.findByColor", query = "SELECT p FROM Productconverse p WHERE p.color = :color")
-    , @NamedQuery(name = "Productconverse.findByPrice", query = "SELECT p FROM Productconverse p WHERE p.price = :price")
-    , @NamedQuery(name = "Productconverse.findByProductname", query = "SELECT p FROM Productconverse p WHERE p.productname = :productname")
-    , @NamedQuery(name = "Productconverse.findByQuantity", query = "SELECT p FROM Productconverse p WHERE p.quantity = :quantity")
-    , @NamedQuery(name = "Productconverse.findBySizeno", query = "SELECT p FROM Productconverse p WHERE p.sizeno = :sizeno")})
+    , @NamedQuery(name = "Productconverse.findByPrice", query = "SELECT p FROM Productconverse p WHERE p.price = :price")})
 public class Productconverse implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 255)
+    @Column(name = "PRODUCTID")
+    private Integer productid;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "PRODUCTNO")
     private String productno;
-    @Size(max = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "PRODUCTNAME")
+    private String productname;
+    @Size(max = 50)
     @Column(name = "BRAND")
     private String brand;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "COLOR")
     private String color;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "PRICE")
     private Double price;
-    @Size(max = 255)
-    @Column(name = "PRODUCTNAME")
-    private String productname;
-    @Column(name = "QUANTITY")
-    private Integer quantity;
-    @Column(name = "SIZENO")
-    private Double sizeno;
 
     public Productconverse() {
     }
 
-    public Productconverse(String productno) {
+    public Productconverse(Integer productid) {
+        this.productid = productid;
+    }
+
+    public Productconverse(Integer productid, String productno, String productname) {
+        this.productid = productid;
         this.productno = productno;
+        this.productname = productname;
+    }
+
+    public Integer getProductid() {
+        return productid;
+    }
+
+    public void setProductid(Integer productid) {
+        this.productid = productid;
     }
 
     public String getProductno() {
@@ -72,6 +87,14 @@ public class Productconverse implements Serializable {
 
     public void setProductno(String productno) {
         this.productno = productno;
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname;
     }
 
     public String getBrand() {
@@ -98,34 +121,10 @@ public class Productconverse implements Serializable {
         this.price = price;
     }
 
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public Double getSizeno() {
-        return sizeno;
-    }
-
-    public void setSizeno(Double sizeno) {
-        this.sizeno = sizeno;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (productno != null ? productno.hashCode() : 0);
+        hash += (productid != null ? productid.hashCode() : 0);
         return hash;
     }
 
@@ -136,7 +135,7 @@ public class Productconverse implements Serializable {
             return false;
         }
         Productconverse other = (Productconverse) object;
-        if ((this.productno == null && other.productno != null) || (this.productno != null && !this.productno.equals(other.productno))) {
+        if ((this.productid == null && other.productid != null) || (this.productid != null && !this.productid.equals(other.productid))) {
             return false;
         }
         return true;
@@ -144,7 +143,7 @@ public class Productconverse implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Productconverse[ productno=" + productno + " ]";
+        return "model.Productconverse[ productid=" + productid + " ]";
     }
     
 }

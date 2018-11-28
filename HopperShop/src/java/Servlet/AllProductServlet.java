@@ -16,13 +16,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.UserTransaction;
+import model.Product;
 import model.Productadidas;
 import model.Productconverse;
 import model.Productgucci;
+import model.controllor.ProductJpaController;
+import model.controllor.ProductadidasJpaController;
 
-import model.controller.ProductadidasJpaController;
-import model.controller.ProductconverseJpaController;
-import model.controller.ProductgucciJpaController;
+
 
 /**
  *
@@ -44,14 +45,17 @@ public class AllProductServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-        ProductadidasJpaController productAdidasCtrl = new ProductadidasJpaController(utx, emf);
-        List<Productadidas> productAdidasL = productAdidasCtrl.findProductadidasEntities();
+        ProductJpaController productCtrl = new ProductJpaController(utx, emf);
+        List<Product> productL = productCtrl.findProductEntities();
+
 
         
-        request.setAttribute("Productadidas", productAdidasL);
+        request.setAttribute("Productadidas", productL);
+
 //        request.setAttribute("Productconverse", productConverseL);
 //        request.setAttribute("Productgucci", productGucciL);
         
+
         getServletContext().getRequestDispatcher("/AllProduct.jsp").forward(request, response);
     }
 

@@ -21,7 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.transaction.UserTransaction;
 import model.Account;
-import model.controller.AccountJpaController;
+import model.controllor.AccountJpaController;
+
 
 /**
  *

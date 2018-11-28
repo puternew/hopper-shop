@@ -6,70 +6,97 @@
 package model;
 
 import java.io.Serializable;
-import java.math.BigInteger;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Student
+ * @author PANUPONG INTHILAD
  */
 @Entity
 @Table(name = "ACCOUNT")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a")
+    , @NamedQuery(name = "Account.findByAccountno", query = "SELECT a FROM Account a WHERE a.accountno = :accountno")
     , @NamedQuery(name = "Account.findByEmail", query = "SELECT a FROM Account a WHERE a.email = :email")
-    , @NamedQuery(name = "Account.findByPassword", query = "SELECT a FROM Account a WHERE a.password = :password")
-    , @NamedQuery(name = "Account.findByName", query = "SELECT a FROM Account a WHERE a.name = :name")
-    , @NamedQuery(name = "Account.findByTelno", query = "SELECT a FROM Account a WHERE a.telno = :telno")
-    , @NamedQuery(name = "Account.findByAddress", query = "SELECT a FROM Account a WHERE a.address = :address")
-    , @NamedQuery(name = "Account.findByProvince", query = "SELECT a FROM Account a WHERE a.province = :province")
-    , @NamedQuery(name = "Account.findByPostalcode", query = "SELECT a FROM Account a WHERE a.postalcode = :postalcode")})
+    , @NamedQuery(name = "Account.findByAccountpassword", query = "SELECT a FROM Account a WHERE a.accountpassword = :accountpassword")
+    , @NamedQuery(name = "Account.findByAccountname", query = "SELECT a FROM Account a WHERE a.accountname = :accountname")
+    , @NamedQuery(name = "Account.findByTelno", query = "SELECT a FROM Account a WHERE a.telno = :telno")})
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "ACCOUNTNO")
+    private Integer accountno;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "EMAIL")
     private String email;
     @Size(max = 50)
-    @Column(name = "PASSWORD")
-    private String password;
+    @Column(name = "ACCOUNTPASSWORD")
+    private String accountpassword;
     @Size(max = 50)
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "ACCOUNTNAME")
+    private String accountname;
+    @Size(max = 50)
     @Column(name = "TELNO")
-    private BigInteger telno;
-    @Size(max = 500)
-    @Column(name = "ADDRESS")
-    private String address;
-    @Size(max = 20)
-    @Column(name = "PROVINCE")
-    private String province;
-    @Column(name = "POSTALCODE")
-    private Long postalcode;
+    private String telno;
+    @OneToMany(mappedBy = "accountno")
+    private List<Address> addressList;
 
     public Account() {
     }
 
-    public Account(String email) {
+    public Account(Integer accountno) {
+        this.accountno = accountno;
+    }
+
+    public Account(Integer accountno, String email) {
+        this.accountno = accountno;
         this.email = email;
+    }
+
+    public Account(Integer accountno, String email, String accountpassword, String accountname, String telno, List<Address> addressList) {
+        this.accountno = accountno;
+        this.email = email;
+        this.accountpassword = accountpassword;
+        this.accountname = accountname;
+        this.telno = telno;
+        this.addressList = addressList;
     }
 
     public Account(String email, String password, String name, String telNo, String address, String province, String postalCode) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+
+
+
+    public Integer getAccountno() {
+        return accountno;
+    }
+
+    public void setAccountno(Integer accountno) {
+        this.accountno = accountno;
     }
 
     public String getEmail() {
@@ -80,58 +107,43 @@ public class Account implements Serializable {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAccountpassword() {
+        return accountpassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAccountpassword(String accountpassword) {
+        this.accountpassword = accountpassword;
     }
 
-    public String getName() {
-        return name;
+    public String getAccountname() {
+        return accountname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAccountname(String accountname) {
+        this.accountname = accountname;
     }
 
-    public BigInteger getTelno() {
+    public String getTelno() {
         return telno;
     }
 
-    public void setTelno(BigInteger telno) {
+    public void setTelno(String telno) {
         this.telno = telno;
     }
 
-    public String getAddress() {
-        return address;
+    @XmlTransient
+    public List<Address> getAddressList() {
+        return addressList;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public Long getPostalcode() {
-        return postalcode;
-    }
-
-    public void setPostalcode(Long postalcode) {
-        this.postalcode = postalcode;
+    public void setAddressList(List<Address> addressList) {
+        this.addressList = addressList;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (email != null ? email.hashCode() : 0);
+        hash += (accountno != null ? accountno.hashCode() : 0);
         return hash;
     }
 
@@ -142,7 +154,7 @@ public class Account implements Serializable {
             return false;
         }
         Account other = (Account) object;
-        if ((this.email == null && other.email != null) || (this.email != null && !this.email.equals(other.email))) {
+        if ((this.accountno == null && other.accountno != null) || (this.accountno != null && !this.accountno.equals(other.accountno))) {
             return false;
         }
         return true;
@@ -150,11 +162,7 @@ public class Account implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Account[ email=" + email + " ]";
-    }
-
-    public Object getAccountpassword() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "model.Account[ accountno=" + accountno + " ]";
     }
     
 }

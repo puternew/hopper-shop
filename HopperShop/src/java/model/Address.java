@@ -9,7 +9,11 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -19,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Student
+ * @author PANUPONG INTHILAD
  */
 @Entity
 @Table(name = "ADDRESS")
@@ -28,43 +32,51 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a")
     , @NamedQuery(name = "Address.findByAddressno", query = "SELECT a FROM Address a WHERE a.addressno = :addressno")
     , @NamedQuery(name = "Address.findByAddresstext", query = "SELECT a FROM Address a WHERE a.addresstext = :addresstext")
-    , @NamedQuery(name = "Address.findByPostcode", query = "SELECT a FROM Address a WHERE a.postcode = :postcode")
     , @NamedQuery(name = "Address.findByProvince", query = "SELECT a FROM Address a WHERE a.province = :province")
-    , @NamedQuery(name = "Address.findByAccountno", query = "SELECT a FROM Address a WHERE a.accountno = :accountno")})
+    , @NamedQuery(name = "Address.findByPostcode", query = "SELECT a FROM Address a WHERE a.postcode = :postcode")})
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "ADDRESSNO")
+    private Integer addressno;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "ADDRESSNO")
-    private String addressno;
-    @Size(max = 255)
+    @Size(min = 1, max = 200)
     @Column(name = "ADDRESSTEXT")
     private String addresstext;
-    @Size(max = 255)
-    @Column(name = "POSTCODE")
-    private String postcode;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "PROVINCE")
     private String province;
-    @Size(max = 255)
-    @Column(name = "ACCOUNTNO")
-    private String accountno;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "POSTCODE")
+    private String postcode;
+    @JoinColumn(name = "ACCOUNTNO", referencedColumnName = "ACCOUNTNO")
+    @ManyToOne
+    private Account accountno;
 
     public Address() {
     }
 
-    public Address(String addressno) {
+    public Address(Integer addressno) {
         this.addressno = addressno;
     }
 
-    public String getAddressno() {
+    public Address(Integer addressno, String addresstext, String postcode) {
+        this.addressno = addressno;
+        this.addresstext = addresstext;
+        this.postcode = postcode;
+    }
+
+    public Integer getAddressno() {
         return addressno;
     }
 
-    public void setAddressno(String addressno) {
+    public void setAddressno(Integer addressno) {
         this.addressno = addressno;
     }
 
@@ -76,14 +88,6 @@ public class Address implements Serializable {
         this.addresstext = addresstext;
     }
 
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
     public String getProvince() {
         return province;
     }
@@ -92,11 +96,19 @@ public class Address implements Serializable {
         this.province = province;
     }
 
-    public String getAccountno() {
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public Account getAccountno() {
         return accountno;
     }
 
-    public void setAccountno(String accountno) {
+    public void setAccountno(Account accountno) {
         this.accountno = accountno;
     }
 
