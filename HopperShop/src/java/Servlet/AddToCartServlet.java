@@ -53,6 +53,7 @@ public class AddToCartServlet extends HttpServlet {
             session.setAttribute("cart", cart);
         }
         cart.add(product);
+        
         session.setAttribute("product", product);
         response.sendRedirect("Allproduct");
     }

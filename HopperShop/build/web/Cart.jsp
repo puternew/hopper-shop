@@ -9,8 +9,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cart</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>    
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    
     </head>
     <body>
         <jsp:include page="Components/Navbar.jsp"/>
@@ -23,18 +30,25 @@
                         <div class="col">Quantity</div>
                         <div class="col">REMOVE</div>
                     </div>
-                
-                <c:forEach items="${cart.getLineIteme}" var="p">
+
+
+
+
+  
+                <c:forEach items="${cart.lineItem}" var="p">
                     <div class="row m-0 p-1" style="background-color: #ECEEF0">
-                        <div class="col">${p.product.productcode}</div>
+                        <div class="col">${p.product.productid}</div>
                         <div class="col">${p.product.productname}</div>
                         <div class="col">
                             <a href="ReduceProduct?productid=${p.product.productid}"><button>-</button></a>
-                            ${p.quantity}
+                            ${p.totalPrice}
                             <a href="AddProduct?productid=${p.product.productid}"><button>+</button></a>
                         </div>
                         <div class="col"><a href="RemoveProduct?productid=${p.product.productid}"><button>REMOVE</button></a></div>
                     </div>
                 </c:forEach>
+              </div>
+          </div>
+        
     </body>
 </html>

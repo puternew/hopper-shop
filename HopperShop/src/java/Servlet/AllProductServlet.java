@@ -48,14 +48,8 @@ public class AllProductServlet extends HttpServlet {
         ProductJpaController productCtrl = new ProductJpaController(utx, emf);
         List<Product> productL = productCtrl.findProductEntities();
 
-
-        
         request.setAttribute("Product", productL);
-
-//        request.setAttribute("Productconverse", productConverseL);
-//        request.setAttribute("Productgucci", productGucciL);
         
-
         getServletContext().getRequestDispatcher("/AllProduct.jsp").forward(request, response);
     }
 

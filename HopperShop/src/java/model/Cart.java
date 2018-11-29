@@ -60,7 +60,7 @@ public class Cart {
         this.cart = cart;
     }
 
-    public List<LineItem> getLineIteme() {
+    public List<LineItem> getLineItem() {
         return new ArrayList(cart.values());
     }
 }
