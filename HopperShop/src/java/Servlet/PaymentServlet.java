@@ -25,27 +25,30 @@ public class PaymentServlet extends HttpServlet {
 
     @PersistenceUnit(unitName = "HopperShopPU")
     EntityManagerFactory emf;
-    @Resource 
+    @Resource
     UserTransaction utx;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       String cardNo = request.getParameter("cardNo");
-       String cvv = request.getParameter("cvv");
-       String expMonth = request.getParameter("expMonth");
-       String expYear = request.getParameter("expYear");
-       String nameOnCard = request.getParameter("nameOnCard");
-       HttpSession session = request.getSession(false);
-        if (session == null) {
-        getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+                throws ServletException, IOException {
+        String cardNo = request.getParameter("cardNo");
+        String cvv = request.getParameter("cvv");
+        String expMonth = request.getParameter("expMonth");
+        String expYear = request.getParameter("expYear");
+        String nameOnCard = request.getParameter("nameOnCard");
+        HttpSession session = request.getSession();
+        if (session.getAttribute("account") == null) {
+            getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+        } else {
+
+            if (cardNo != null && cvv != null && expMonth != null && expYear != null && nameOnCard != null
+                        && cardNo.trim().length() > 0 && cvv.trim().length() > 0 && expMonth.trim().length() > 0 && expYear.trim().length() > 0 && nameOnCard.trim().length() > 0) {
+                getServletContext().getRequestDispatcher("/PurchaseSuccess.jsp").forward(request, response);
+                session.setAttribute("cart", null);
+                return;
+            }
+            request.setAttribute("incomplete", "Fill the blank!!!");
+            getServletContext().getRequestDispatcher("/Payment.jsp").forward(request, response);
         }
-            
-       if (cardNo!=null&&cvv!=null&&expMonth!=null&&expYear!=null&&nameOnCard!=null&&
-               cardNo.trim().length()>0&&cvv.trim().length()>0&&expMonth.trim().length()>0&&expYear.trim().length()>0&&nameOnCard.trim().length()>0 ) {
-            getServletContext().getRequestDispatcher("/PurchaseSuccess.jsp").forward(request, response);
-            return;
-        }
-        request.setAttribute("incomplete","Fill the blank!!!");
-        getServletContext().getRequestDispatcher("/Payment.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -59,7 +62,7 @@ public class PaymentServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+                throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -73,7 +76,7 @@ public class PaymentServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+                throws ServletException, IOException {
         processRequest(request, response);
     }
 

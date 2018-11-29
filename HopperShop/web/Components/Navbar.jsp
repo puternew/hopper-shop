@@ -31,34 +31,44 @@
                             <li><a href="pageVans.jsp">VANS</a></li>
                         </ul>
                     </li>
+                    <form class="navbar-form navbar-left" action="#">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" name="search">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </ul>
-                
+
                 <ul class="nav navbar-nav navbar-right">
 
 
                     <% if (session.getAttribute("account") == null) { %>
                     <li class="list-inline-item">
-                    <a class="nav-link" href="Cart"style="color: #D5C4AD;">
-                        <% Cart cart = (Cart) session.getAttribute("cart"); %>
-                        <% if (cart != null && cart.getTotalQuantity() != 0) { %>
-                        <i class="fas fa-shopping-cart"></i> SHOPPING CART (${cart.totalQuantity}) 
-                        <% } else { %>
-                        <i class="fas fa-shopping-cart"></i> SHOPPING CART (0) 
-                        <% }%>
-                    </a>
-                </li>
+                        <a class="nav-link" href="Cart"style="color: #D5C4AD;">
+                            <% Cart cart = (Cart) session.getAttribute("cart"); %>
+                            <% if (cart != null && cart.getTotalQuantity() != 0) { %>
+                            <i class="fas fa-shopping-cart"></i> SHOPPING CART (${cart.totalQuantity}) 
+                            <% } else { %>
+                            <i class="fas fa-shopping-cart"></i> SHOPPING CART (0) 
+                            <% }%>
+                        </a>
+                    </li>
                     <li><a href="Login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     <li><a href="Register"><span class="glyphicon glyphicon-user" ></span> Register</a></li>
-                        <% } else {%><li class="list-inline-item">
-                    <a class="nav-link" href="Cart"style="color: #D5C4AD;">
-                        <% Cart cart = (Cart) session.getAttribute("cart"); %>
-                        <% if (cart != null && cart.getTotalQuantity() != 0) { %>
-                        <i class="fas fa-shopping-cart"></i> SHOPPING CART (${cart.totalQuantity}) 
-                        <% } else { %>
-                        <i class="fas fa-shopping-cart"></i> SHOPPING CART (0) 
-                        <% }%>
-                    </a>
-                </li>
+                    <% } else {%><li class="list-inline-item">
+                        <a class="nav-link" href="Cart"style="color: #D5C4AD;">
+                            <% Cart cart = (Cart) session.getAttribute("cart"); %>
+                            <% if (cart != null && cart.getTotalQuantity() != 0) { %>
+                            <i class="fas fa-shopping-cart"></i> SHOPPING CART (${cart.totalQuantity}) 
+                            <% } else { %>
+                            <i class="fas fa-shopping-cart"></i> SHOPPING CART (0) 
+                            <% }%>
+                        </a>
+                    </li>
                     <li><a href="#" style="color: #D5C4AD;"><span class="glyphicon glyphicon-user"></span> ${account.accountname}</a></li>
                     <li><a href="Logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                         <% }%>

@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         String email = request.getParameter("email");
         String password = request.getParameter("accountPassword");
-        if (session.getAttribute("acc") != null) {
+        if (session.getAttribute("account") != null) {
             getServletContext().getRequestDispatcher("/Allproduct").forward(request, response);
         } else {
             if (email != null || password != null) {
