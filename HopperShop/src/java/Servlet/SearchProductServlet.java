@@ -31,10 +31,35 @@ public class SearchProductServlet extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-        String search = request.getParameter("search");
+        String search = request.getParameter("search").toUpperCase();
+        String[] brand = {"ADIDAS", "CONVERSE", "NIKE", "VANS"};
+        String[] color = {"BLACK", "BLUE", "GRAY", "WHITE", "YELLOW", "GREEN", "RED", "BLACK-RED", "ZEBRA", "PINK", "ORANGE", "HAWAII", "SNAKE", "CREAM", "BLACK2", "RED2", "GOLDEN", "SILVER", "BLUE2", "WHITE-RED", "WHITE-BLUE", "WHITE-BLACK", "WHITE-RED", "BROWN"};
         ProductJpaController productCtrl = new ProductJpaController(utx, emf);
+        String check = null;
         List<Product> products = null;
         products = productCtrl.findByBrand(search);
+        
+        for (String brandInShop : brand) {
+            if (search.equals(brandInShop)) {
+                check = search;
+            }
+        }
+        if (check != null) {
+            //find from brand
+            products = productCtrl.findByBrand(check);
+        } else {
+            for (String colorInShop : color) {
+                if (search.equals(colorInShop)) {
+                    check = search;
+                }
+            }
+            if (check != null) {
+                   products = productCtrl.findByColor(check);
+            } else {
+                products = productCtrl.findByColor(check);
+//                products = productCtrl.findByProductName(check);
+            }
+        }
         
         request.setAttribute("Product", products);
         getServletContext().getRequestDispatcher("/AllProduct.jsp").forward(request, response);
