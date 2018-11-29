@@ -31,7 +31,7 @@
                             <li><a href="pageVans.jsp">VANS</a></li>
                         </ul>
                     </li>
-                    <form class="navbar-form navbar-left" action="#">
+                    <form class="navbar-form navbar-left" action="SearchProduct">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search" name="search">
                             <div class="input-group-btn">

@@ -29,9 +29,9 @@
             <img src="converseLogo.png" alt="converseLogo" width="600" height="300" >    
                 <p>" อีกหนึ่งเครื่องแต่งกายที่มาแรงแบบไม่ตกเทรนด์กว่าหลายสิบปี เรียกว่าเป็นไอเท็มคลาสสิกไปเสียแล้วกับ Converse แบรนด์รองเท้าและเสื้อผ้าไลฟ์สไตล์จากประเทศอเมริกา "</p>
                 <p>" ควรค่าแก่การเป็นเจ้าของที่พร้อมเติมเต็มลุคลำลองสไตล์สตรีทให้กับคุณจากแบรนด์ Converse โลดแล่นไปกับกลิ่นอายสไตล์เก๋าๆ กับแบรนด์ Converse ช่วยยกระดับความสบายตลอดการสวมใส่ของคุณ "</p>
-                <form action="Allproduct" method="post">
+<!--                <form action="Allproduct" method="post">
                     <button type="submit" class="btn btn-default btn-lg"> Buy </button>
-                </form>     
+                </form>     -->
            </center>     
     </div>
 

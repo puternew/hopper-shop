@@ -29,9 +29,9 @@
             <img src="nikeLogo.jpg" alt="nikeLogo" width="600" height="300" >    
                 <p>" ปัจจุบันคงจะไม่มีที่ไม่รู้จักรองเท้า Nike อย่างแน่นอน รองเท้า Nike เป็นรองเท้ากีฬาอีกแบรนด์ยอดนิยมที่วางขายอยู่ทั่วไปตามท้องตลาด 
                     ไม่ว่าจะเป็นรองเท้ากีฬา Nike ผู้หญิง หรือรองเท้ากีฬา Nike ของผู้ชาย ซึ่งได้รับความนิยมสูงมาก โดยเฉพาะการใส่ออกกำลังกายเป็นต้น "</p>            
-                <form action="Allproduct" method="post">
+<!--                <form action="Allproduct" method="post">
                     <button type="submit" class="btn btn-default btn-lg"> Buy </button>
-                </form>     
+                </form>     -->
            </center>     
     </div>
 

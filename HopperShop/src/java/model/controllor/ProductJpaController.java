@@ -115,7 +115,8 @@ public class ProductJpaController implements Serializable {
             }
         }
     }
-
+    
+    
     public List<Product> findProductEntities() {
         return findProductEntities(true, -1, -1);
     }
@@ -157,6 +158,37 @@ public class ProductJpaController implements Serializable {
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        } 
+    }
+    
+    public List<Product> findByProductName(String search){
+        EntityManager em = getEntityManager();
+        try{
+            Query query = em.createNamedQuery("Product.findByProductname");
+            query.setParameter("productname", "%"+search+"%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    public List<Product> findByBrand(String search){
+        EntityManager em = getEntityManager();
+        try{
+            Query query = em.createNamedQuery("Product.findByBrand");
+            query.setParameter("brand", "%"+search+"%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    public List<Product> findByColor(String search){
+        EntityManager em = getEntityManager();
+        try{
+            Query query = em.createNamedQuery("Product.findByColor");
+            query.setParameter("color", "%"+search+"%");
+            return query.getResultList();
         } finally {
             em.close();
         }

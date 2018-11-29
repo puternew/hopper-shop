@@ -40,6 +40,10 @@
         <servlet-name>PaymentServlet</servlet-name>
         <servlet-class>Servlet.PaymentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchProductServlet</servlet-name>
+        <servlet-class>Servlet.SearchProductServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AllproductServlet</servlet-name>
         <url-pattern>/Allproduct</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>PaymentServlet</servlet-name>
         <url-pattern>/Payment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchProductServlet</servlet-name>
+        <url-pattern>/SearchProduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
