@@ -21,7 +21,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.transaction.UserTransaction;
 import model.Account;
+import model.Address;
 import model.controllor.AccountJpaController;
+import model.controllor.AddressJpaController;
 
 
 /**
@@ -40,21 +42,39 @@ public class RegisterServlet extends HttpServlet {
        String password = request.getParameter("accountPassword");
        String name = request.getParameter("accountName");
        String telNo = request.getParameter("telNo");
-       String address = request.getParameter("address");
+       String address = request.getParameter("addressText");
        String province = request.getParameter("province");
-       String postalCode = request.getParameter("postalCode");
+       String postalCode = request.getParameter("postCode");
         
         if (email!=null&&password!=null&&name!=null&&telNo!=null&&address!=null&&province!=null&&postalCode!=null&&email.trim().length()>0
                 &&password.trim().length()>0&&name.trim().length()>0&&telNo.trim().length()>0&&address.trim().length()>0&&province.trim().length()>0&&postalCode.trim().length()>0) {
             HttpSession session = request.getSession(false);
-            if (session != null) {
+            if (session.getAttribute("acc") != null) {
                 getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
                 return;
             }
-            password = cryptWithMD5(password);
-            Account acc = new  Account(email,password,name,telNo,address,province,postalCode);
+//            password = cryptWithMD5(password);
             AccountJpaController accCtrl = new AccountJpaController(utx, emf);
+            Account acc = new  Account();
+            acc.setEmail(email);
+            acc.setAccountpassword(password);
+            acc.setAccountname(name);
+            acc.setTelno(telNo);
+           try{
             accCtrl.create(acc);
+           }catch(Exception ex){
+               System.out.println(ex);
+           }
+            AddressJpaController addrCtrl = new AddressJpaController(utx, emf);
+            Address addr = new Address();
+            addr.setAddresstext(address);
+            addr.setProvince(province);
+            addr.setPostcode(postalCode);
+            try{
+            addrCtrl.create(addr);
+            }catch(Exception ex){
+                System.out.println(ex);
+            }
             getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
             return;
          
@@ -62,17 +82,17 @@ public class RegisterServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
     }
 
-        public static String cryptWithMD5(String pass) throws NoSuchAlgorithmException{
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] passBytes = pass.getBytes();
-            md.reset();
-            byte[] digested = md.digest(passBytes);
-            StringBuffer sb = new StringBuffer();
-            for (int i = 0; i < digested.length; i++) {
-                sb.append(Integer.toHexString(0xff & digested[i]));
-            }
-            return sb.toString();    
-        }
+//        public static String cryptWithMD5(String pass) throws NoSuchAlgorithmException{
+//            MessageDigest md = MessageDigest.getInstance("MD5");
+//            byte[] passBytes = pass.getBytes();
+//            md.reset();
+//            byte[] digested = md.digest(passBytes);
+//            StringBuffer sb = new StringBuffer();
+//            for (int i = 0; i < digested.length; i++) {
+//                sb.append(Integer.toHexString(0xff & digested[i]));
+//            }
+//            return sb.toString();    
+//        }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

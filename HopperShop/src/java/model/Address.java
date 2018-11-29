@@ -71,6 +71,7 @@ public class Address implements Serializable {
         this.addresstext = addresstext;
         this.postcode = postcode;
     }
+    
 
     public Integer getAddressno() {
         return addressno;

@@ -60,7 +60,7 @@ public class Account implements Serializable {
     @Column(name = "TELNO")
     private String telno;
     @OneToMany(mappedBy = "accountno")
-    private List<Address> addressList;
+    public List<Address> addressList;
 
     public Account() {
     }
@@ -74,18 +74,19 @@ public class Account implements Serializable {
         this.email = email;
     }
 
-    public Account(Integer accountno, String email, String accountpassword, String accountname, String telno, List<Address> addressList) {
-        this.accountno = accountno;
+   
+    public Account( String email, String accountpassword, String accountname, String telno) {
+      
         this.email = email;
         this.accountpassword = accountpassword;
         this.accountname = accountname;
         this.telno = telno;
-        this.addressList = addressList;
+     
     }
+        
+    
 
-    public Account(String email, String password, String name, String telNo, String address, String province, String postalCode) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     
 

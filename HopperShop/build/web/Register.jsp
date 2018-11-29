@@ -52,7 +52,7 @@
                                     <div class="form-group">
                                         <div class="form-group">
                                             <label for="comment">Address:</label>
-                                            <textarea name="address" class="form-control input-sm" rows="5" id="Address"></textarea>
+                                            <textarea name="addressText" class="form-control input-sm" rows="5" id="Address"></textarea>
                                         </div>
                                     </div>
 
@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <input type="textbox" name="postalCode" id="postalCode" class="form-control input-sm" placeholder="Postal Code">
+                                            <input type="textbox" name="postCode" id="postalCode" class="form-control input-sm" placeholder="Postal Code">
                                         </div>
                                     </div>
 
