@@ -15,7 +15,7 @@ import java.util.Map;
  *
  * @author PANUPONG INTHILAD
  */
-public class Cart {
+public class Cart{
     private Map<String, LineItem> cart;
 
     public Cart() {
@@ -51,6 +51,17 @@ public class Cart {
         }
         return all;
     }
+    
+    public double getTotalPayment() {
+        double all = 0;
+        Collection<LineItem> lineItem = this.cart.values();
+        for (LineItem lineitem : lineItem) {
+            all += lineitem.getTotalPrice();
+        }
+        return all;
+    }
+    
+    
 
     public Map<String, LineItem> getCart() {
         return cart;
@@ -60,7 +71,7 @@ public class Cart {
         this.cart = cart;
     }
 
-    public List<LineItem> getLineIteme() {
+    public List<LineItem> getLineItem() {
         return new ArrayList(cart.values());
     }
 }

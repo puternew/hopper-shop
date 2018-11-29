@@ -7,33 +7,40 @@ package Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.annotation.Resource;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.transaction.UserTransaction;
 import model.Cart;
+import model.Product;
+import model.controllor.ProductJpaController;
 
 /**
  *
  * @author PANUPONG INTHILAD
  */
-public class CartServlet extends HttpServlet {
+public class ReduceProductServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    @PersistenceUnit
+    EntityManagerFactory emf;
+    @Resource
+    UserTransaction utx;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
+        String productId = request.getParameter("productid");
+        ProductJpaController productsCtrl = new ProductJpaController(utx, emf);
+
+        Product product = productsCtrl.findProduct(Integer.parseInt(productId));
+
         HttpSession session = request.getSession();
-        
-        getServletContext().getRequestDispatcher("/Cart.jsp").forward(request, response);
+        Cart cart = (Cart) session.getAttribute("cart");
+        cart.reduce(product);
+        response.sendRedirect("Cart");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

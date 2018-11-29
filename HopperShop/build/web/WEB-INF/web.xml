@@ -17,12 +17,24 @@
         <servlet-class>Servlet.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>Servlet.CartServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AddToCartServlet</servlet-name>
         <servlet-class>Servlet.AddToCartServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CartServlet</servlet-name>
-        <servlet-class>Servlet.CartServlet</servlet-class>
+        <servlet-name>ReduceProductServlet</servlet-name>
+        <servlet-class>Servlet.ReduceProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddProductServlet</servlet-name>
+        <servlet-class>Servlet.AddProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveAllServlet</servlet-name>
+        <servlet-class>Servlet.RemoveAllServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PaymentServlet</servlet-name>
@@ -45,12 +57,24 @@
         <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/Cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AddToCartServlet</servlet-name>
         <url-pattern>/AddToCart</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CartServlet</servlet-name>
-        <url-pattern>/Cart</url-pattern>
+        <servlet-name>ReduceProductServlet</servlet-name>
+        <url-pattern>/ReduceProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductServlet</servlet-name>
+        <url-pattern>/AddProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveAllServlet</servlet-name>
+        <url-pattern>/RemoveAll</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PaymentServlet</servlet-name>

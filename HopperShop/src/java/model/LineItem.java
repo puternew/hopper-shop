@@ -5,8 +5,6 @@
  */
 package model;
 
-import java.math.BigDecimal;
-
 /**
  *
  * @author PANUPONG INTHILAD
@@ -19,15 +17,26 @@ public class LineItem {
     public LineItem() {
     }
 
+    public LineItem(Product product) {
+        this.product = product;
+        this.quantity++;
+    }
+
+    public double TotalPrice() {
+        this.totalPrice = product.getPrice() * this.quantity;
+        return this.totalPrice;
+    }
+    
     public LineItem(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
-        TotalPrice();
     }
 
-    LineItem(Product p) {
-         this.product = product;
-         this.quantity++;
+    
+    public LineItem(Product product, int quantity, double totalPrice) {
+        this.product = product;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
     }
 
     public Product getProduct() {
@@ -46,17 +55,14 @@ public class LineItem {
         this.quantity = quantity;
     }
 
-    public Double getTotalPrice() {
+    public double getTotalPrice() {
+        this.totalPrice = product.getPrice() * this.quantity;
         return totalPrice;
     }
 
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice=1;
     }
-
-    private double TotalPrice() {
-        this.totalPrice = this.product.getPrice()*this.quantity;
-        return totalPrice;
-    }
+    
     
 }
