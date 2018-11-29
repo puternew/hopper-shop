@@ -24,35 +24,23 @@ import model.controllor.ProductJpaController;
  *
  * @author PANUPONG INTHILAD
  */
-public class AddToCartServlet extends HttpServlet {
-    @PersistenceUnit (unitName = "HopperShopPU")
+public class ReduceProductServlet extends HttpServlet {
+
+    @PersistenceUnit
     EntityManagerFactory emf;
     @Resource
     UserTransaction utx;
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
-        Cart cart = (Cart) session.getAttribute("cart");
-        
-        if (cart == null) {
-            cart = new Cart();
-            session.setAttribute("cart", cart);
-        }
         String productId = request.getParameter("productid");
-        ProductJpaController productCtrl = new ProductJpaController(utx, emf);
+        ProductJpaController productsCtrl = new ProductJpaController(utx, emf);
 
-        Product product = productCtrl.findProduct(Integer.parseInt(productId));
-        cart.add(product);
-        response.sendRedirect("Allproduct");
+        Product product = productsCtrl.findProduct(Integer.parseInt(productId));
+
+        HttpSession session = request.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
+        cart.reduce(product);
+        response.sendRedirect("Cart");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

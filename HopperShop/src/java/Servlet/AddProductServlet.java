@@ -24,7 +24,7 @@ import model.controllor.ProductJpaController;
  *
  * @author PANUPONG INTHILAD
  */
-public class AddToCartServlet extends HttpServlet {
+public class AddProductServlet extends HttpServlet {
     @PersistenceUnit (unitName = "HopperShopPU")
     EntityManagerFactory emf;
     @Resource
@@ -40,19 +40,15 @@ public class AddToCartServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
-        Cart cart = (Cart) session.getAttribute("cart");
-        
-        if (cart == null) {
-            cart = new Cart();
-            session.setAttribute("cart", cart);
-        }
         String productId = request.getParameter("productid");
-        ProductJpaController productCtrl = new ProductJpaController(utx, emf);
+        ProductJpaController productsCtrl = new ProductJpaController(utx, emf);
 
-        Product product = productCtrl.findProduct(Integer.parseInt(productId));
+        Product product = productsCtrl.findProduct(Integer.parseInt(productId));
+
+        HttpSession session = request.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
         cart.add(product);
-        response.sendRedirect("Allproduct");
+        response.sendRedirect("Cart");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
