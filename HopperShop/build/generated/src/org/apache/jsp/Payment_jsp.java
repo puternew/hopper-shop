@@ -70,7 +70,7 @@ public final class Payment_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</h3>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"panel-body\">\r\n");
-      out.write("                                <form role=\"form\">\r\n");
+      out.write("                                <form role=\"form\" action=\"Payment\" method=\"post\"> \r\n");
       out.write("\r\n");
       out.write("                                    <div class=\"form-group\">\r\n");
       out.write("                            <input type=\"textbox\" name=\"cardNo\" id=\"cardNo\" class=\"form-control input-sm\" placeholder=\"Card Number\">\r\n");

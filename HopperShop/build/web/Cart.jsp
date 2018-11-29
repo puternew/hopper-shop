@@ -75,7 +75,7 @@
 
             <div class="col-lg-12 text-center">
                 
-                <form action="Address" method="post">
+                <form action="Payment" method="post">
                     <button type="submit" name="check" value="Check Out" class="btn btn-default btn-lg bg">Check Out</button>
                 </form>
 
