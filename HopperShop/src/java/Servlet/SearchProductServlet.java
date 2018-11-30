@@ -37,7 +37,7 @@ public class SearchProductServlet extends HttpServlet {
         ProductJpaController productCtrl = new ProductJpaController(utx, emf);
         String check = null;
         List<Product> products = null;
-        products = productCtrl.findByBrand(search);
+
         
         for (String brandInShop : brand) {
             if (search.equals(brandInShop)) {
@@ -46,7 +46,7 @@ public class SearchProductServlet extends HttpServlet {
         }
         if (check != null) {
             //find from brand
-            products = productCtrl.findByBrand(check);
+            products = productCtrl.findByBrand(search);
         } else {
             for (String colorInShop : color) {
                 if (search.equals(colorInShop)) {
@@ -54,9 +54,9 @@ public class SearchProductServlet extends HttpServlet {
                 }
             }
             if (check != null) {
-                   products = productCtrl.findByColor(check);
+                   products = productCtrl.findByColor(search);
             } else {
-                products = productCtrl.findByColor(check);
+                products = productCtrl.findByColor(search);
 //                products = productCtrl.findByProductName(check);
             }
         }
